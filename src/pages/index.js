@@ -27,6 +27,23 @@ const IndexPage = () => {
       </Helmet>
       <main style={pageStyles}>
         <HeroBanner />
+
+        <section id="aboutMe">
+          <div className="content-container">
+            <h1>Hi, I&apos;m Josh. <span className="wave">👋</span></h1>
+            {/* <p>
+              I help designers, small agencies and businesses bring their ideas to life. Powered by Figma, VS Code and coffee, 
+              I turn your requirements into CMS-ified and ecommerce-ified websites - on time and on budget.
+            </p> */}
+            <p>
+              I&apos;m a <span className="highlight">graduate web developer</span> based in Oxfordshire, England. I have a 
+              background in web based software for the social care sector and have a passion for UI development and design 
+              currently using Nodejs with React, Graphql and Postgres.
+            </p>
+            <p>Got any questions? <a href="mailto:mayoe@live.co.uk">Contact me</a>.</p>
+          </div>
+        </section>
+
         <section>
           <div className="content-container">
             <TiledHexagons
@@ -42,7 +59,7 @@ const IndexPage = () => {
           </div>
         </section>
 
-        <section>
+        <section id="socials">
           <div className="content-container">
             <div className="socials-container">
               <div className="socials-text">

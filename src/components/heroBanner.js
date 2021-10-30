@@ -33,7 +33,7 @@ const HeroBanner = () => {
               'opacity': 0.4
             },
             'move': {
-              'speed': 0.5
+              'speed': 1
             },
             'opacity': {
               'anim': {
