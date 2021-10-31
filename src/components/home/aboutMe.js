@@ -10,7 +10,7 @@ const AboutMe = () => {
             <h1>Hi, I&apos;m Josh. <span className="wave">👋</span></h1>
             <p>
                 I&apos;m a <span className="highlight">graduate web developer</span> based in Oxfordshire, England. I have a 
-                background in web based software for the social care sector and have a passion for UI development and design 
+                background in web based software development for the social care sector and have a passion for UI development and design 
                 currently using Nodejs with React, Graphql and Postgres.
             </p>
             <p className={inView ? 'fade-in show' : 'fade-in'}>Got any questions? <a href="mailto:mayoe@live.co.uk">Contact me</a>.</p>

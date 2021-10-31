@@ -11,9 +11,7 @@ import Socials from '../components/home/socials';
 // styles
 const pageStyles = {
   color: '#232129',
-  // padding: 96,
   fontFamily: '-apple-system, Roboto, sans-serif, serif',
-  // backgroundColor: '#000'
 };
 
 // markup
