@@ -88,6 +88,10 @@ footer {
   padding: 50px 20px 20px 20px;
   color: #fff;
   text-align: center;
+
+  text {
+    transform: translate(0px, -4px);
+  }
 }
 
 /*********   nav styles   *********/
@@ -142,7 +146,7 @@ nav {
 
 section {
   // background-color: $SecondaryBackgroundColor;
-  padding: 40px 0;
+  padding: 80px 0;
 
   .content-container {
     margin: auto;
@@ -197,6 +201,58 @@ section {
   }
 }
 
+#skills {
+  .content-container {
+    justify-content: center;
+    text-align: center;
+    // align-items: center;
+    flex-direction: row;
+    color: #fff;
+
+    h1 {
+      color: #fff;
+    }
+
+    h2 {
+      font-weight: initial;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      margin-top: 10px;
+    }
+  }
+
+  .skills-column {
+    width: 33.3333333%;
+    padding: 15px;
+
+    p {
+      line-height: 28px;
+    }
+  }
+
+  .icon-container {
+    min-height: 68px;
+  }
+}
+
+.fade-in {
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+  transition-delay: 0.5s;
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+}
+
 /************ hero styles ***********/
 
 .hero-canvas {
@@ -235,6 +291,21 @@ section {
     .content-container {
       width: 100%;
     }
+  }
+
+  #skills {
+    .content-container {
+      flex-direction: column;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

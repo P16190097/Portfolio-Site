@@ -12,7 +12,7 @@ const Footer = () => {
           tileSideLengths={25}
           tileTextStyles={{
             fontFamily: 'Font Awesome Brands',
-            fontSize: '30px',
+            fontSize: '22px',
             fill: 'white'
           }}
           tileGap={10}
