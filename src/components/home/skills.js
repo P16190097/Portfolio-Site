@@ -7,7 +7,7 @@ import UIIcon from '../../images/icons8-web-development-64.png';
 const Skills = () => {
   return (
     <section id="skills">
-      <InView>
+      <InView triggerOnce={true}>
         {({ inView, ref, /* entry */ }) => (
           <div className={inView ? 'content-container fade-in show' : 'content-container fade-in'} ref={ref}>
 
@@ -15,10 +15,12 @@ const Skills = () => {
               <div className="icon-container">
                 <img src={DbIcon} alt="database-icon" />
               </div>
-              <h1>Database</h1>
-              <p>
-            Developing and maintaining SQL Queries, Stored Procedures and Relational Databases in SQL.
-              </p>
+              <div className="skills-header">
+                <h1>Database</h1>
+                <p>
+                    Developing, maintaining and debugging SQL databases using Stored Procedures and ORMs.
+                </p>
+              </div>
               <h2>Dialects</h2>
               <ul>
                 <li>SQL Server</li>
@@ -32,14 +34,16 @@ const Skills = () => {
               <div className="icon-container">
                 <img src={ServerIcon} alt="server-side-icon" />
               </div>
-              <h1>Server-side</h1>
-              <p>
-            Building and maintaining .NET Core APIs in C# to producing software applications in Java.
-              </p>
-              <h2>Server-side tech</h2>
+              <div className="skills-header">
+                <h1>Server-side</h1>
+                <p>
+                    Building and maintaining .NET Core web applications in C# to developing GraphQl APIs using Javascript.
+                </p>
+              </div>
+              <h2>Server-side Tech</h2>
               <ul>
                 <li>C#</li>
-                <li>NodeJs</li>
+                <li>Nodejs</li>
                 <li>Php</li>
                 <li>GraphQl</li>
               </ul>
@@ -49,10 +53,12 @@ const Skills = () => {
               <div className="icon-container">
                 <img src={UIIcon} alt="front-end-icon" />
               </div>
-              <h1>UI / UX</h1>
-              <p>
-            Producing and maintaining web based applications for clients in Angular and JavaScript Node.
-              </p>
+              <div className="skills-header">
+                <h1>UI / UX</h1>
+                <p>
+                    Producing and maintaining web based applications for clientele using Nodejs with react.
+                </p>
+              </div>
               <h2>Front-end frameworks</h2>
               <ul>
                 <li>React</li>

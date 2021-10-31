@@ -40,12 +40,12 @@ const Footer = () => {
               text: 'linkedin-in',
               fill: '#0a66c2',
               shadow: '#075099',
-              href: `https://twitter.com/intent/tweet?url=${shareURL}}`
+              href: 'https://www.linkedin.com/mwlite/in/joshua-mayo-3949a219b'
             }
           ]}
         />
       </div>
-      <div>© Joshua Mayo 2021, Just built different 💪</div>
+      <div>© Joshua Mayo 2021, built different 💪</div>
     </footer>
   );
 };

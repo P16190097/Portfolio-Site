@@ -11,7 +11,6 @@ const Nav = () => {
   return (
     <nav className={scroll ? 'header-visible' : ''}>
       <div className="nav-container">
-        {/* <div className='nav-inner'>Logo</div> */}
         <a href="/">
           <img
             alt="Gatsby G Logo"
@@ -20,9 +19,9 @@ const Nav = () => {
         </a>
         <div className='nav-inner'>
           <ul>
-            <li><a href="/#portfolio">Portfolio</a></li>
+            <li><a href="/#projects">Portfolio</a></li>
             <li><a href="/#socials">Socials</a></li>
-            <li><a href="/#contactMe">Contact Me</a></li>
+            <li><a href="/#aboutMe">About Me</a></li>
           </ul>
         </div>
       </div>

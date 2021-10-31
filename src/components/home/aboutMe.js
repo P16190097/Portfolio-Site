@@ -4,11 +4,11 @@ import { InView } from 'react-intersection-observer';
 const AboutMe = () => {
   return (
     <section id="aboutMe">
-      <InView>
+      <InView triggerOnce={true}>
         {({ inView, ref, /* entry */ }) => (
-          <div className="content-container" ref={ref}>
-            <h1 className={inView ? 'fade-in show' : 'fade-in'}>Hi, I&apos;m Josh. <span className="wave">👋</span></h1>
-            <p className={inView ? 'fade-in show' : 'fade-in'}>
+          <div className={inView ? 'content-container fade-in show' : 'content-container fade-in'} ref={ref}>
+            <h1>Hi, I&apos;m Josh. <span className="wave">👋</span></h1>
+            <p>
                 I&apos;m a <span className="highlight">graduate web developer</span> based in Oxfordshire, England. I have a 
                 background in web based software for the social care sector and have a passion for UI development and design 
                 currently using Nodejs with React, Graphql and Postgres.

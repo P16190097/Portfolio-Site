@@ -291,11 +291,22 @@ section {
     .content-container {
       width: 100%;
     }
-  }
 
+    .skills-header {
+      min-height: 160px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
   #skills {
     .content-container {
       flex-direction: column;
+      align-items: center;
+    }
+
+    .skills-column {
+      padding: 40px;
     }
   }
 }

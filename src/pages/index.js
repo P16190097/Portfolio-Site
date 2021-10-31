@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 import HeroBanner from '../components/heroBanner';
 import AboutMe from '../components/home/aboutMe';
 import Skills from '../components/home/skills';
+import Projects from '../components/home/projects';
 import Socials from '../components/home/socials';
 
 // styles
@@ -26,6 +27,7 @@ const IndexPage = () => {
         <HeroBanner />
         <AboutMe />
         <Skills />
+        <Projects />
         <Socials />
       </main>
     </Layout>
