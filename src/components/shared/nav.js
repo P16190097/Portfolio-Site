@@ -19,9 +19,9 @@ const Nav = () => {
         </a>
         <div className='nav-inner'>
           <ul>
+            <li><a href="/#aboutMe">About Me</a></li>
             <li><a href="/#projects">Portfolio</a></li>
             <li><a href="/#socials">Socials</a></li>
-            <li><a href="/#aboutMe">About Me</a></li>
           </ul>
         </div>
       </div>

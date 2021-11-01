@@ -37,15 +37,16 @@ const Skills = () => {
               <div className="skills-header">
                 <h1>Server-side</h1>
                 <p>
-                    Building and maintaining .NET Core web applications in C# to developing GraphQl APIs using Javascript.
+                  Building and maintaining .NET Core web applications in C# to developing GraphQL APIs using Javascript.
                 </p>
               </div>
               <h2>Server-side Tech</h2>
               <ul>
-                <li>C#</li>
+                <li>C# .Net Core/Framework</li>
                 <li>Nodejs</li>
                 <li>Php</li>
-                <li>GraphQl</li>
+                <li>GraphQL</li>
+                <li>Docker</li>
               </ul>
             </div>
 

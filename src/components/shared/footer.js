@@ -1,5 +1,6 @@
 import React from 'react';
 import { /* Hexagon, */ TiledHexagons } from 'tiled-hexagons';
+import RaspberryPi from '../../images/logos/raspberry-pi-logo-svg-vector.svg';
 
 const Footer = () => {
   const shareURL = encodeURIComponent('https://github.com/p16190097');
@@ -44,6 +45,10 @@ const Footer = () => {
             }
           ]}
         />
+      </div>
+      <div className="pi-container">
+        <div className="pi-text">Powered by Pi</div>
+        <img src={RaspberryPi} alt="raspberry pi" />
       </div>
       <div>© Joshua Mayo 2021, built different 💪</div>
     </footer>
