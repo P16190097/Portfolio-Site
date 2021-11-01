@@ -47,7 +47,7 @@ const Footer = () => {
         />
       </div>
       <div className="pi-container">
-        <div className="pi-text">Powered by Pi</div>
+        <div className="pi-text">Powered by Gatsby, served by Pi</div>
         <img src={RaspberryPi} alt="raspberry pi" />
       </div>
       <div>© Joshua Mayo 2021, built different 💪</div>

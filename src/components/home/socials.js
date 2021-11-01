@@ -12,7 +12,7 @@ const Socials = () => {
           <div className={inView ? 'content-container fade-in show' : 'content-container fade-in'} ref={ref}>
             <div className="socials-container">
               <div className="socials-text">
-                <h1>Come see what I&apos;ve been up to...</h1>
+                <h1>Come see what else I&apos;ve been up to...</h1>
               </div>
             </div>
             <div className="socials-container">

@@ -1,6 +1,6 @@
 import React from 'react';
 import Particles from 'react-particles-js';
-import deer from '../images/small-deer.svg';
+import deer from '../../images/small-deer.svg';
 import 'pathseg';
 
 const HeroBanner = () => {

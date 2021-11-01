@@ -2,7 +2,7 @@ import * as React from 'react';
 import Layout from '../components/shared/layout';
 import { Helmet } from 'react-helmet';
 // import { Link } from "gatsby"
-import HeroBanner from '../components/heroBanner';
+import HeroBanner from '../components/home/heroBanner';
 import AboutMe from '../components/home/aboutMe';
 import Skills from '../components/home/skills';
 import Projects from '../components/home/projects';

@@ -47,6 +47,7 @@ const Skills = () => {
                 <li>Php</li>
                 <li>GraphQL</li>
                 <li>Docker</li>
+                <li>IIS</li>
               </ul>
             </div>
 
@@ -63,6 +64,7 @@ const Skills = () => {
               <h2>Front-end frameworks</h2>
               <ul>
                 <li>React</li>
+                <li>Gatsby</li>
                 <li>Sass</li>
                 <li>Less</li>
                 <li>JQuery</li>
