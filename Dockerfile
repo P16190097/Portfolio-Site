@@ -1,9 +1,9 @@
 FROM node:14.17.4
 # RUN apt-get update && apt-get install -y <list of packages>
-# RUN apk add --no-cache \
-#     make g++ && \
-#     apk add vips-dev fftw-dev --update-cache \
-#     && rm -fR /var/cache/apk/*
+RUN apk add --no-cache \
+    make g++ && \
+    apk add vips-dev fftw-dev --update-cache \
+    && rm -fR /var/cache/apk/*
 
 # Create app directory
 WORKDIR /usr/src/app
