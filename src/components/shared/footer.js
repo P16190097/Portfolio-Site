@@ -3,8 +3,6 @@ import { /* Hexagon, */ TiledHexagons } from 'tiled-hexagons';
 import RaspberryPi from '../../images/logos/raspberry-pi-logo-svg-vector.svg';
 
 const Footer = () => {
-  const shareURL = encodeURIComponent('https://github.com/p16190097');
-
   return (
     <footer>
       <div>
@@ -23,7 +21,7 @@ const Footer = () => {
               text: 'facebook-f',
               fill: '#4267b2',
               shadow: '#1a2947',
-              href: `https://www.facebook.com/sharer/sharer.php?u=${shareURL}}`
+              href: 'https://www.facebook.com/'
             },
             {
               text: 'github',
@@ -35,7 +33,7 @@ const Footer = () => {
               text: 'twitter',
               fill: '#1dcaff',
               shadow: '#0084b4',
-              href: `https://twitter.com/intent/tweet?url=${shareURL}}`
+              href: 'https://twitter.com/'
             },
             {
               text: 'linkedin-in',

@@ -6,9 +6,13 @@ const MetaData = () => {
   return(
     <>
       <Helmet>
-        <meta name="og:description" content="Placeholder description" />
-        <meta name="keywords" content="web developer josh mayo" />
-        <meta name="description" content="Placeholder description" />
+        <meta name="og:description" content="I'm a graduate web developer based in Oxfordshire, England. I have a 
+                background in web based software development for the social care sector and have a passion for UI development and design 
+                currently using Nodejs with React, GraphQL and Postgres." />
+        <meta name="keywords" content="web developer, josh mayo, nodejs, react, graphql, postgres, c#, .net core, .net framework, mysql, css3, html5 " />
+        <meta name="description" content="I'm a graduate web developer based in Oxfordshire, England. I have a 
+                background in web based software development for the social care sector and have a passion for UI development and design 
+                currently using Nodejs with React, GraphQL and Postgres." />
         <link rel="icon" type="image/png" sizes="16x16" href={favicon} />
 
         {/* <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

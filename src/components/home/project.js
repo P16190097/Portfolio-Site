@@ -17,7 +17,7 @@ const Project = ({ logo, title, subTitle, text }) => {
 Project.propTypes = {
   logo: PropTypes.any, 
   title: PropTypes.string, 
-  subTitle: PropTypes.string, 
+  subTitle: PropTypes.any, 
   text: PropTypes.string,
 };
 

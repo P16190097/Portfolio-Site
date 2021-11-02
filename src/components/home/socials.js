@@ -3,8 +3,6 @@ import { InView } from 'react-intersection-observer';
 import { /* Hexagon, */ TiledHexagons } from 'tiled-hexagons';
 
 const Socials = () => {
-  const shareURL = encodeURIComponent('https://github.com/p16190097');
-
   return(
     <section id="socials">
       <InView triggerOnce={true}>
@@ -31,7 +29,7 @@ const Socials = () => {
                     text: 'facebook-f',
                     fill: '#4267b2',
                     shadow: '#1a2947',
-                    href: `https://www.facebook.com/sharer/sharer.php?u=${shareURL}}`
+                    href: 'https://www.facebook.com/'
                   },
                   {
                     text: 'github',
@@ -43,7 +41,7 @@ const Socials = () => {
                     text: 'twitter',
                     fill: '#1dcaff',
                     shadow: '#0084b4',
-                    href: `https://twitter.com/intent/tweet?url=${shareURL}}`
+                    href: 'https://twitter.com/'
                   }
                 ]}
               />

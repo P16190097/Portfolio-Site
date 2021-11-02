@@ -19,7 +19,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Josh Mayo - Web developer | site url here</title>
+        <title>Josh Mayo - Web developer | joshmayo.co.uk</title>
       </Helmet>
       <main style={pageStyles}>
         <HeroBanner />
