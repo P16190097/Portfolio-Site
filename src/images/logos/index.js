@@ -1,0 +1,9 @@
+export { default as Arch } from './arch.svg';
+export { default as Electron } from './electron.svg';
+export { default as Graphql } from './graphql.svg';
+export { default as Mongodb } from './mongodb.svg';
+export { default as Nodejs } from './nodejs.svg';
+export { default as React } from './react.svg';
+export { default as Reactivex } from './reactivex.svg';
+export { default as Redux } from './redux.svg';
+export { default as Sass } from './sass.svg';

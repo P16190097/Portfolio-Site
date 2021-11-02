@@ -1,0 +1,418 @@
+$PrimaryBackgroundColor: #082032;
+$SecondaryBackgroundColor: #2c394b;
+$TertiaryBackgroundColor: #334756;
+$HighlightColor: #ff4c29;
+$HighlightColorMute: #b9290c;
+
+$FontColor: #fff;
+
+$AltBackground: rgb(24, 24, 24);
+
+@font-face {
+  font-family: "Font Awesome Brands";
+  src: url(./fonts/Font-Awesome-5-Brands-Regular-400.otf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: unset;
+  font-family: -apple-system, Roboto, sans-serif, serif;
+  background-color: $PrimaryBackgroundColor;
+  overflow: auto;
+}
+
+a,
+h1,
+h2,
+h3,
+h4 {
+  color: $HighlightColor;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: $HighlightColor;
+  transition: color linear 0.2s;
+}
+
+a:hover {
+  color: $HighlightColorMute;
+}
+
+/*******  scrollbar styles  ******/
+
+// body {
+//   scroll-behavior: smooth;
+//   scrollbar-width: thin;
+//   scrollbar-color: #5651b7;
+// }
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #061825;
+  // background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $HighlightColor;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $HighlightColorMute;
+}
+
+/*******   footer styles   *******/
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+footer {
+  flex-shrink: 0;
+  padding: 50px 20px 20px 20px;
+  color: #fff;
+  text-align: center;
+
+  text {
+    transform: translate(0px, -4px);
+  }
+
+  img {
+    max-height: 30px;
+  }
+
+  .pi-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .pi-text {
+    padding: 5px 10px 0 0;
+  }
+}
+
+/*********   nav styles   *********/
+
+nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+  transition: background-color linear 0.2s;
+
+  .nav-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav-inner {
+    width: inherit;
+    display: flex;
+    flex-direction: row-reverse;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+      justify-content: flex-end;
+      list-style: none;
+      padding: 0;
+      margin: 25px;
+
+      a {
+        padding: 0 20px;
+      }
+    }
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+  }
+}
+
+.header-visible {
+  position: fixed;
+  background-color: #061825;
+}
+
+/******** section styles *******/
+
+section {
+  // background-color: $SecondaryBackgroundColor;
+  padding: 80px 0;
+
+  .content-container {
+    margin: auto;
+    // width: 1024px;
+    width: 1004px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .socials-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .socials-text {
+    display: block;
+    justify-content: center;
+
+    h1 {
+      margin: 0 20px;
+    }
+  }
+}
+
+#aboutMe {
+  .content-container {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+
+    h1 {
+      font-size: 30px;
+    }
+
+    p {
+      width: 50%;
+      line-height: 28px;
+    }
+
+    .wave {
+      animation: wave-animation 2.5s infinite linear;
+      transform-origin: 70% 70%;
+      display: inline-block;
+    }
+
+    .highlight {
+      color: $HighlightColor;
+    }
+  }
+}
+
+#skills {
+  .content-container {
+    justify-content: center;
+    text-align: center;
+    // align-items: center;
+    flex-direction: row;
+    color: #fff;
+
+    h1 {
+      color: #fff;
+    }
+
+    h2 {
+      font-weight: initial;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      margin-top: 10px;
+    }
+  }
+
+  .skills-column {
+    width: 33.3333333%;
+    padding: 15px;
+
+    p {
+      line-height: 28px;
+    }
+  }
+
+  .icon-container {
+    min-height: 68px;
+  }
+}
+
+#projects {
+  .content-container {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+
+    .project-row {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .project-container {
+      width: 50%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        font-size: 30px;
+      }
+
+      h4 {
+        margin: 0;
+      }
+
+      p {
+        line-height: 28px;
+      }
+
+      .project-link {
+        font-style: italic;
+      }
+    }
+
+    .project-icon {
+      max-height: 100px;
+      // border-radius: 50px;
+    }
+  }
+}
+
+.fade-in {
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+  transition-delay: 0.5s;
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+}
+
+/************ hero styles ***********/
+
+.hero-canvas {
+  height: 100vh !important;
+}
+
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  color: $FontColor;
+
+  .hero-title {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 105px;
+    width: 275px;
+  }
+
+  .hero-title-divider {
+    border-bottom: 1px solid $HighlightColor;
+    border-radius: 25px;
+    margin: 10px 0;
+  }
+
+  .hero-subtitle {
+    color: $HighlightColor;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  section {
+    .content-container {
+      width: 100%;
+    }
+
+    .skills-header {
+      min-height: 160px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #skills {
+    .content-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .skills-column {
+      padding: 40px;
+    }
+  }
+
+  #projects {
+    .content-container {
+      .project-row {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  } /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  } /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
+}
