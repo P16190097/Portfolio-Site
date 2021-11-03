@@ -1,4 +1,4 @@
-FROM node:14.17.4-apline3.14
+FROM node:14.17.4-alpine3.14
 # RUN apt-get update && apt-get install -y <list of packages>
 RUN apk add --no-cache \
     make g++ && \
