@@ -25,4 +25,4 @@ COPY gatsby-config.js .
 COPY . .
 
 EXPOSE 80
-CMD npm run serve
+CMD npm run serve-prod

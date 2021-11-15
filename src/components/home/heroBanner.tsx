@@ -1,5 +1,6 @@
 import React from 'react';
 import Particles from 'react-particles-js';
+import { Type } from 'tsparticles';
 import deer from '../../images/small-deer.svg';
 import 'pathseg';
 
@@ -48,7 +49,7 @@ const HeroBanner = () => {
           'polygon': {
             'enable': true,
             'scale': 1,
-            'type': 'inline',
+            'type': Type.inline,
             'move': {
               'radius': 10
             },

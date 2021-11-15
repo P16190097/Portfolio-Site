@@ -1,6 +1,6 @@
 import React from 'react';
 import { InView } from 'react-intersection-observer';
-import { /* Hexagon, */ TiledHexagons } from 'tiled-hexagons';
+import { TiledHexagons } from 'tiled-hexagons';
 
 const Socials = () => {
   return(

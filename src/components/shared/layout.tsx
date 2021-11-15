@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 import PropTypes from 'prop-types';
 import Nav from './nav';
 import Footer from './footer';
 import MetaData from './metaData';
 import '../../styles/styles.scss';
 
-const Layout = ({ children }) => {
+interface Props {
+  // any props that come into the component, you don't have to explicitly define children.
+  children: unknown,
+}
+
+const Layout: FC<Props> = ({ children }) => {
   return (
     <>
       <MetaData />
