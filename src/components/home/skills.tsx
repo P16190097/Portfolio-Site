@@ -66,9 +66,8 @@ const Skills = () => {
                 <li>React</li>
                 <li>Gatsby</li>
                 <li>Sass</li>
-                <li>Less</li>
+                <li>TypeScript</li>
                 <li>JQuery</li>
-                <li>Razor</li>
                 <li>HTML5</li>
                 <li>CSS3</li>
               </ul>

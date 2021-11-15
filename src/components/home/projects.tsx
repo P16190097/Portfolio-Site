@@ -55,8 +55,7 @@ const Projects = () => {
                   logo={project.logo}
                   title={project.title}
                   subTitle={project.subTitle}
-                  text={project.text} 
-                  iconStyles={project.iconStyles}
+                  text={project.text}
                 />
               ))}
             </div>
@@ -68,8 +67,7 @@ const Projects = () => {
                   logo={project.logo}
                   title={project.title}
                   subTitle={project.subTitle}
-                  text={project.text} 
-                  iconStyles={project.iconStyles}
+                  text={project.text}
                 />
               ))}
             </div>
