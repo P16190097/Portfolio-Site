@@ -39,7 +39,7 @@ const Footer = () => {
               text: 'linkedin-in',
               fill: '#0a66c2',
               shadow: '#075099',
-              href: 'https://www.linkedin.com/mwlite/in/joshua-mayo-3949a219b'
+              href: 'https://www.linkedin.com/in/joshua-mayo-3949a219b/'
             }
           ]}
         />

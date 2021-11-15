@@ -17,7 +17,7 @@ const projectRow1 = [
   {
     logo: NasaIcon,
     title: 'ISS tracker',
-    subTitle: <a href="https://github.com/P16190097/Space-Site" className="project-link">Check it out</a>,
+    subTitle: <><a href="https://github.com/P16190097/Space-Site" className="project-link">Check it out</a> / <a href="https://p16190097.github.io/Space-Site/" className="project-link">Visit the site</a></>,
     text: `A university project where I was tasked with building a web site from scratching with an emphasis on 
       implementing modern web practises and features offered by HTML5, CSS3 and javascript ES6 using mobile 
       first design philosophy.`,
@@ -47,7 +47,7 @@ const Projects = () => {
       <InView triggerOnce={true}>
         {({ inView, ref, /* entry */ }) => (
           <div className={inView ? 'content-container fade-in show' : 'content-container fade-in'} ref={ref}>
-            <h1>Pet Projects</h1>
+            {/* <h1>Pet Projects</h1> */}
             <div className="project-row">
               {projectRow1.map((project, index) => (
                 <Project 
