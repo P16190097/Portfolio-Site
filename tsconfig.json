@@ -12,7 +12,8 @@
       "noUnusedLocals": true,
       "noUnusedParameters": true,
       "removeComments": false,
-      "typeRoots" : ["node_modules/@types", "node_modules/@types/react-dom", "src/types"]
+      "typeRoots" : ["node_modules/@types", "node_modules/@types/react-dom", "src/types"],
+      "noImplicitAny": false
     },
     "include": ["./src/**/*"]
   }

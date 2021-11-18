@@ -25,7 +25,8 @@ body {
   margin: unset;
   font-family: -apple-system, Roboto, sans-serif, serif;
   background-color: $PrimaryBackgroundColor;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 a,
@@ -322,17 +323,18 @@ section {
 
 .hero-overlay {
   position: absolute;
-  width: 100%;
+  height: 100vh;
+  width: 50%;
   left: 0;
   top: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: $FontColor;
 
   .hero-title {
     text-align: center;
     font-size: 40px;
-    margin-top: 105px;
     width: 275px;
   }
 
@@ -344,6 +346,14 @@ section {
 
   .hero-subtitle {
     color: $HighlightColor;
+  }
+
+  .hero-icons {
+    padding-top: 10px;
+
+    a {
+      padding: 0px 5px;
+    }
   }
 }
 
@@ -377,6 +387,16 @@ section {
         flex-direction: column;
         align-items: center;
       }
+    }
+  }
+
+  .hero-overlay {
+    height: unset;
+    width: 100%;
+    justify-content: center;
+
+    .hero-title {
+      margin-top: 105px;
     }
   }
 }
