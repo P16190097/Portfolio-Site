@@ -1,10 +1,14 @@
 import React from 'react';
-import Particles from 'react-particles-js';
-import { Type } from 'tsparticles';
-import deer from '../../images/small-deer.svg';
-import 'pathseg';
+import useCanvas from '../../hooks/useCanvas';
+import drawHeroPlanet from '../../canvas/planet';
+// import Particles from 'react-particles-js';
+// import { Type } from 'tsparticles';
+// import deer from '../../images/small-deer.svg';
+// import 'pathseg';
 
 const HeroBanner = () => {
+  const canvasRef = useCanvas(drawHeroPlanet);
+
   return (
     <div className="hero-container">
       <div className="hero-overlay">
@@ -14,7 +18,8 @@ const HeroBanner = () => {
           <div className="hero-subtitle">Web Developer</div>
         </div>
       </div>
-      <Particles
+      <canvas className="hero-canvas" ref={canvasRef} />
+      {/* <Particles
         canvasClassName='hero-canvas'
         params={{
           'fps_limit': 60,
@@ -88,7 +93,7 @@ const HeroBanner = () => {
               }
             }
           }
-        }} />
+        }} /> */}
     </div>
   );
 };
