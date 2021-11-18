@@ -347,6 +347,14 @@ section {
   .hero-subtitle {
     color: $HighlightColor;
   }
+
+  .hero-icons {
+    padding-top: 10px;
+
+    a {
+      padding: 0px 5px;
+    }
+  }
 }
 
 @media screen and (max-width: 1024px) {
