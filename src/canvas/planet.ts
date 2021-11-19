@@ -335,21 +335,37 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
   };
 
   const resizeCanvas = () => {
-    // const { width, height } = canvas.getBoundingClientRect();
+    const { width, height } = canvas.getBoundingClientRect();
 
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    console.log('redraw', width, height);
+    // const width = window.innerWidth;
+    // const height = window.innerHeight;
+    console.log('redraw', width, height, canvas);
     
-    if (canvas.width !== width || canvas.height !== height) {
-      const { devicePixelRatio:ratio=1 } = window;
-      const context = canvas.getContext('2d');
-      canvas.width = width*ratio;
-      canvas.height = height*ratio;
-      context.scale(ratio, ratio);
-    }
+    // if (canvas.width !== width || canvas.height !== height) {
+    //   const { devicePixelRatio:ratio=1 } = window;
+    //   const context = canvas.getContext('2d');
+    //   canvas.width = width*ratio;
+    //   canvas.height = height*ratio;
+    //   context.scale(ratio, ratio);
+    // }
 
     reDraw();
+  };
+
+  const resizeCanvasToDisplaySize = () => {
+    
+    const { width, height } = canvas.getBoundingClientRect();
+
+    if (canvas.width !== width || canvas.height !== height) {
+      canvas.width = width;
+      canvas.height = height;
+      c.scale(1, 1);
+      reDraw();
+      return true; // here you can return some usefull information like delta width and delta height instead of just true
+      // this information can be used in the next redraw...
+    }
+
+    return false;
   };
 
   //Generate how many elements you want
@@ -425,7 +441,7 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
   const deBouncer = () => {
     clearTimeout(tid);
     tid = setTimeout(() => {
-      resizeCanvas();
+      resizeCanvasToDisplaySize();
     }, delay);
   };
 
