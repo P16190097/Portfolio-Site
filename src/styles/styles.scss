@@ -23,7 +23,7 @@ body {
 
 body {
   margin: unset;
-  font-family: -apple-system, Roboto, sans-serif, serif;
+  font-family: "Neue Helvetica", sans-serif, serif;
   background-color: $PrimaryBackgroundColor;
   overflow-x: hidden;
   overflow-y: auto;
@@ -379,6 +379,11 @@ section {
 
     .skills-column {
       padding: 40px;
+      width: unset;
+
+      .skills-header {
+        min-height: unset;
+      }
     }
   }
 
@@ -388,7 +393,15 @@ section {
         flex-direction: column;
         align-items: center;
       }
+
+      .project-container {
+        width: unset;
+      }
     }
+  }
+
+  .fade-in {
+    opacity: 1;
   }
 
   .hero-overlay {
@@ -398,6 +411,16 @@ section {
 
     .hero-title {
       margin-top: 105px;
+    }
+  }
+
+  nav {
+    .nav-inner {
+      ul {
+        a {
+          padding: 0 10px;
+        }
+      }
     }
   }
 }

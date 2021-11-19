@@ -48,8 +48,8 @@
     - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
     - [Docker commands](https://docs.divio.com/en/latest/how-to/deploy-gatsby/)
-    - sudo docker build . -t 46160:80 -d portfolio-site
-    - sudo docker run --restart unless-stopped -p 49160:80 -d portfolio-site
+    - sudo docker build -t portfolio-site .
+    - sudo docker run --restart unless-stopped -p 80:80 -d portfolio-site
 
 ## 🚀 Quick start (Gatsby Cloud)
 

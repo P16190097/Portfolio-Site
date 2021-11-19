@@ -11,7 +11,7 @@ import Socials from '../components/home/socials';
 // styles
 const pageStyles = {
   color: '#232129',
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
+  fontFamily: 'Neue Helvetica, sans-serif, serif',
 };
 
 // markup
