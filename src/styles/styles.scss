@@ -23,7 +23,7 @@ body {
 
 body {
   margin: unset;
-  font-family: "Neue Helvetica", sans-serif, serif;
+  font-family: "Roboto", "Neue Helvetica", sans-serif, serif;
   background-color: $PrimaryBackgroundColor;
   overflow-x: hidden;
   overflow-y: auto;
@@ -417,9 +417,21 @@ section {
   nav {
     .nav-inner {
       ul {
+        margin: 20px;
+
         a {
           padding: 0 10px;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 374px) {
+  nav {
+    .nav-inner {
+      .nav-logo {
+        display: none;
       }
     }
   }

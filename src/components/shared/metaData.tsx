@@ -14,6 +14,7 @@ const MetaData = () => {
                 background in web based software development for the social care sector and have a passion for UI development and design 
                 currently using Nodejs with React, GraphQL and Postgres." />
         <link rel="icon" type="image/png" sizes="16x16" href={favicon} />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
 
         {/* <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

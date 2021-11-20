@@ -271,11 +271,11 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
   let land = [{x: 20, y: 10, update: () => {}}];
   // let stars = [{x: 10, y:10, spikes: 0, innerRadius: 0, outerRadius: 0}];
 
-  let dd = 3;
+  let dd = 1; // speed of orbit
   let angle = 20;
   let cx = center.x;
   let cy = center.y;
-  let radius = 265;
+  let radius = 285;
 
   let satellite: Satellite;
   let satelliteRing;
