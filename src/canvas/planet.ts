@@ -380,11 +380,11 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
     land = [{x: 20, y: 10, update: () => {}}];
     // stars = [{x: 10, y:10, spikes: 0, innerRadius: 0, outerRadius: 0}];
 
-    dd = 3;
+    dd = 1;
     angle = 20;
     cx = center.x;
     cy = center.y;
-    radius = 265;
+    radius = 285;
 
     drawPlanets(50);
     // drawStars(20);
