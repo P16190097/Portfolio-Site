@@ -219,6 +219,29 @@ section {
   }
 }
 
+#associates {
+  .content-container {
+    display: block;
+    text-align: center;
+  }
+
+  a {
+    display: inline-block;
+    filter: grayscale(0.8) brightness(0.5);
+    margin: 30px;
+    transition: filter linear 0.1s;
+  }
+
+  img {
+    max-height: 100px;
+  }
+
+  a:hover,
+  a:active {
+    filter: none;
+  }
+}
+
 #skills {
   .content-container {
     justify-content: center;
@@ -417,7 +440,7 @@ section {
   nav {
     .nav-inner {
       ul {
-        margin: 20px;
+        margin: 25px 20px;
 
         a {
           padding: 0 10px;
@@ -427,15 +450,13 @@ section {
   }
 }
 
-@media screen and (max-width: 374px) {
-  nav {
-    .nav-inner {
-      .nav-logo {
-        display: none;
-      }
-    }
-  }
-}
+// @media screen and (max-width: 424px) {
+//   #associates {
+//     .content-container {
+//       flex-direction: column;
+//     }
+//   }
+// }
 
 @keyframes fadeIn {
   0% {

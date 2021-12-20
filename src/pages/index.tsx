@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 // import { Link } from "gatsby"
 import HeroBanner from '../components/home/heroBanner';
 import AboutMe from '../components/home/aboutMe';
+import Associates from '../components/home/associates';
 import Skills from '../components/home/skills';
 import Projects from '../components/home/projects';
 import Socials from '../components/home/socials';
@@ -24,6 +25,7 @@ const IndexPage = () => {
       <main style={pageStyles}>
         <HeroBanner />
         <AboutMe />
+        <Associates />
         <Skills />
         <Projects />
         <Socials />
