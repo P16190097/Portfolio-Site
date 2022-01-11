@@ -3,7 +3,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const drawHeroPlanet = (canvasRef: { current: any; }) => {
   const canvas = canvasRef.current;
-  console.log(canvasRef, canvasRef.current);
   const c = canvas.getContext('2d');
 
   canvas.width = window.innerWidth;
@@ -403,7 +402,6 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
       canvas.width = width;
       canvas.height = height;
       c.scale(1, 1);
-      console.log('redraw');
       reDraw();
       return true; // here you can return some usefull information like delta width and delta height instead of just true
       // this information can be used in the next redraw...

@@ -4,6 +4,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import useCanvas from '../../hooks/useCanvas';
 import drawHeroPlanet from '../../canvas/planet';
+import headshot from '../../images/headshot.jpg';
 
 const HeroBanner = () => {
   const canvasRef = useCanvas(drawHeroPlanet);
@@ -12,7 +13,8 @@ const HeroBanner = () => {
     <div className="hero-container">
       <div className="hero-overlay">
         <div className="hero-title">
-          Joshua Mayo
+          <img src={headshot} alt="avatar" />
+          <div>Joshua Mayo</div>
           <div className="hero-title-divider"></div>
           <div className="hero-subtitle">Web Developer</div>
           <div className="hero-icons">

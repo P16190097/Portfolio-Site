@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import favicon from '../../images/favicon/favicon.ico';
+// import thumbnail from '../../images/favicon/android-chrome-192x192.png';
 
 const MetaData = () => {
   return(
@@ -9,6 +10,7 @@ const MetaData = () => {
         <meta name="og:description" content="I'm a graduate web developer based in Oxfordshire, England. I have a 
                 background in web based software development for the social care sector and have a passion for UI development and design 
                 currently using Nodejs with React, GraphQL and Postgres." />
+        <meta name="og:image" content={`${window.location}images/thumbnail.png`} /> 
         <meta name="keywords" content="web developer, josh mayo, nodejs, react, graphql, postgres, c#, .net core, .net framework, mysql, css3, html5, javascript, typescript" />
         <meta name="description" content="I'm a graduate web developer based in Oxfordshire, England. I have a 
                 background in web based software development for the social care sector and have a passion for UI development and design 

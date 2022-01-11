@@ -115,7 +115,7 @@ footer {
 /*********   nav styles   *********/
 
 nav {
-  position: absolute;
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -155,7 +155,6 @@ nav {
 }
 
 .header-visible {
-  position: fixed;
   background-color: #061825;
 }
 
@@ -360,6 +359,12 @@ section {
     text-align: center;
     font-size: 40px;
     width: 275px;
+
+    img {
+      border-radius: 50%;
+      height: 50%;
+      width: 50%;
+    }
   }
 
   .hero-title-divider {
