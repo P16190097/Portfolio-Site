@@ -29,6 +29,10 @@ body {
   overflow-y: auto;
 }
 
+main {
+  animation: 1s ease-out 0s 1 fadeIn;
+}
+
 a,
 h1,
 h2,
@@ -227,6 +231,7 @@ section {
   a {
     display: inline-block;
     filter: grayscale(0.8) brightness(0.5);
+    opacity: 0.5;
     margin: 30px;
     transition: filter linear 0.1s;
   }
@@ -238,6 +243,7 @@ section {
   a:hover,
   a:active {
     filter: none;
+    opacity: 1;
   }
 }
 
