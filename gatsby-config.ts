@@ -1,4 +1,6 @@
-module.exports = {
+import type { GatsbyConfig } from 'gatsby';
+
+const config: GatsbyConfig = {
   siteMetadata: {
     siteUrl: 'http://www.joshmayo.co.uk',
     title: 'Portfolio site',
@@ -9,13 +11,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-plugin-typescript',
-      options: {
-        // isTSX: true, // defaults to false
-        // jsxPragma: 'jsx', // defaults to "React"
-        // allExtensions: true, // defaults to false
-      },
-    },
   ],
 };
+
+export default config;
