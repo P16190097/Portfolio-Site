@@ -4,7 +4,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import useCanvas from '../../hooks/useCanvas';
 import drawHeroPlanet from '../../canvas/planet';
-import headshot from '../../images/headshot.jpg';
+import headshot from '../../images/headshot1.jpg';
 
 const HeroBanner = () => {
   const canvasRef = useCanvas(drawHeroPlanet);
