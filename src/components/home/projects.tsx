@@ -6,7 +6,7 @@ import NasaIcon from '../../images/projects/nasa-logo.png';
 import GraphQLIcon from '../../images/logos/graphql.svg';
 import ReactIcon from '../../images/logos/react.svg';
 
-const projectRow1 = [
+const projectsList = [
   {
     logo: CuddlyIcon,
     title: 'Cuddly Bot',
@@ -21,10 +21,7 @@ const projectRow1 = [
     text: `A university project where I was tasked with building a web site from scratching with an emphasis on 
       implementing modern web practises and features offered by HTML5, CSS3 and javascript ES6 using mobile 
       first design philosophy.`,
-  }
-];
-
-const projectRow2 = [
+  },
   {
     logo: GraphQLIcon,
     title: 'Synergy Server',
@@ -48,29 +45,15 @@ const Projects = () => {
         {({ inView, ref, /* entry */ }) => (
           <div className={inView ? 'content-container fade-in show' : 'content-container fade-in'} ref={ref}>
             {/* <h1>Pet Projects</h1> */}
-            <div className="project-row">
-              {projectRow1.map((project, index) => (
-                <Project 
-                  key={`project-${index}`}
-                  logo={project.logo}
-                  title={project.title}
-                  subTitle={project.subTitle}
-                  text={project.text}
-                />
-              ))}
-            </div>
-
-            <div className="project-row">
-              {projectRow2.map((project, index) => (
-                <Project 
-                  key={`project-${index}`}
-                  logo={project.logo}
-                  title={project.title}
-                  subTitle={project.subTitle}
-                  text={project.text}
-                />
-              ))}
-            </div>
+            {projectsList.map((project, index) => (
+              <Project 
+                key={`project-${index}`}
+                logo={project.logo}
+                title={project.title}
+                subTitle={project.subTitle}
+                text={project.text}
+              />
+            ))}
           </div>
         )}
       </InView>

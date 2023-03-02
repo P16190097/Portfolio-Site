@@ -9,6 +9,7 @@ const MetaData = () => {
   useEffect(() => {
     return setUrl(window.location);
   }, []);
+  
   return(
     <>
       <Helmet>
