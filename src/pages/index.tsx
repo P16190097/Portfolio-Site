@@ -1,7 +1,6 @@
 import * as React from 'react';
+import SEO from '../components/shared/metaData';
 import Layout from '../components/shared/layout';
-import { Helmet } from 'react-helmet';
-// import { Link } from "gatsby"
 import HeroBanner from '../components/home/heroBanner';
 import AboutMe from '../components/home/aboutMe';
 import Associates from '../components/home/associates';
@@ -15,13 +14,17 @@ const pageStyles = {
   fontFamily: 'Roboto, Neue Helvetica, sans-serif, serif',
 };
 
+export const Head = () => (
+  <>
+    <title>Josh Mayo - Web developer | joshmayo.co.uk</title>
+    <SEO />
+  </>
+);
+
 // markup
 const IndexPage = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>Josh Mayo - Web developer | joshmayo.co.uk</title>
-      </Helmet>
       <main style={pageStyles}>
         <HeroBanner />
         <AboutMe />
