@@ -11,7 +11,7 @@ import Socials from '../components/home/socials';
 // styles
 const pageStyles = {
   color: '#232129',
-  fontFamily: 'Roboto, Neue Helvetica, sans-serif, serif',
+  fontFamily: 'Poppins, Roboto, Neue Helvetica, sans-serif, serif',
 };
 
 export const Head = () => (
@@ -24,16 +24,21 @@ export const Head = () => (
 // markup
 const IndexPage = () => {
   return (
-    <Layout>
-      <main style={pageStyles}>
-        <HeroBanner />
-        <AboutMe />
-        <Associates />
-        <Skills />
-        <Projects />
-        <Socials />
-      </main>
-    </Layout>
+    <div className='parallax'>
+      <Layout>
+        <main style={pageStyles}>
+          <HeroBanner />
+          <AboutMe />
+          <Associates />
+          <Skills />
+          <Projects />
+          <Socials />
+        </main>
+        <div className='parallax__layer parallax__layer--back2'>
+          <div id='stars3'></div>
+        </div>
+      </Layout>
+    </div>
   );
 };
 

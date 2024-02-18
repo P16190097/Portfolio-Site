@@ -5,10 +5,9 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
   const canvas = canvasRef.current;
   const c = canvas.getContext('2d');
 
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  let center = { x: canvas.width / 1.5, y: canvas.height / 2 };
+  const { width, height } = canvas.getBoundingClientRect();
+  canvas.width = width;
+  canvas.height = height;
 
   class Circle {
     private x: number;
@@ -49,33 +48,49 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
   }
 
   class Satellite {
-    constructor(){}
+    private x: number;
+    private y: number;
+    private radius: number;
+    private diameter: number;
+    private fillColor: string;
+    private speed: number;
+
+    constructor (x: number, y: number, radius: number, diameter: number, speed: number, fillColor: string) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.diameter = diameter;
+      this.speed = speed;
+      this.fillColor = fillColor;
+    }
 
     draw = (newX: number, newY: number) => {
       c.save();
       c.beginPath();
-      c.arc(newX, newY, 20, Math.PI * 2, false);
+      c.arc(newX, newY, this.diameter, Math.PI * 2, false);
       c.clip();
       c.moveTo(newX, newX);
       c.lineCap = 'round';
       c.lineWidth = 1;
       c.lineTo(newX, newX);
-      c.strokeStyle = 'rgba(128, 128, 128, 0.5)';
-      c.fillStyle = 'rgba(128, 128, 128, 1)';
+      // c.strokeStyle = this.strokeStyle;
+      c.fillStyle = this.fillColor;
       c.fill();
       c.stroke();
       c.restore();
     };
 
-    update = () => {
+    update = (angle) => {
       // increase the angle of rotation
-      angle += Math.acos(1-Math.pow(dd/radius,2)/2);
+      const newAngle = angle + Math.acos(1-Math.pow(this.speed/this.radius,2)/2);
 
       // calculate the new ball.x / ball.y
-      const newX = cx + radius * Math.cos(angle);
-      const newY = cy + radius * Math.sin(angle);
+      const newX = this.x + this.radius * Math.cos(newAngle);
+      const newY = this.y + this.radius * Math.sin(newAngle);
 
       this.draw(newX, newY);
+
+      return newAngle;
     };
   }
 
@@ -97,205 +112,99 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
     draw = () => {
       c.save();
       c.beginPath();
-      c.arc(center.x, center.y, 120, 0, Math.PI * 2, false);
+      c.arc(center.x, center.y, sunWidth, 0, Math.PI * 2, false);
       c.clip();
       c.beginPath();
       c.moveTo(this.x, this.y);
       c.lineCap = 'round';
       c.lineWidth = this.cloudWidth;
       c.lineTo(this.x + this.cloudLength,this.y);
-      c.strokeStyle = 'white';
+      c.strokeStyle = '#db700b';
       c.stroke();
       c.restore();
     };
     
     update = () => {
-      if(this.x < (center.x - 240)){
-        this.x = center.x+240;
+      if(this.x < (center.x - (sunWidth*2))){
+        this.x = center.x + (sunWidth*2);
       }
       this.x -= this.dx;
       this.draw();
     };
   
   }
-
-  // class ShootingStar {
-  //   private x: number;
-  //   private y: number;
-  //   private dx: number;
-  //   private dy: number;
-  //   private radius: number;
-  //   private color: string;
-
-  //   constructor (x: number, y: number, dx: number, dy: number, radius: number, color: string) {
-  //     this.x = x;
-  //     this.y = y;
-  //     this.dx = dx;
-  //     this.dy = dy;
-  //     this.radius = radius;
-  //     this.color = color;
-  //   }
-    
-  //   draw = () => {
-  //     c.beginPath();
-  //     c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-  //     c.closePath();
-  //     c.fillStyle = this.color;
-  //     c.fill();
-  //   };
-
-  //   update = () => {
-  //     this.x += this.dx;
-  //     this.y += this.dy;
-  //     this.draw();
-  //   };
-
-  //   reset = () => {
-  //     this.x = Math.random() * canvas.width;
-  //     this.y = Math.random() * canvas.height;
-  //     this.dx = (Math.random() - 0.5) * 10;
-  //     this.dy = (Math.random() - 0.5) * 10;
-  //     this.radius = (Math.random() * 2) + 1;
-  //   };
-  // }
-
-  class Land {
-    private x: number;
-    private y: number;
-    private dx: number;
-    private landWidth: number;
-    private landLength: number;
-
-    constructor (x: number,y: number,dx: number,landWidth: number,landLength: number) {
-      this.x = x;
-      this.y = y;
-      this.dx = dx;
-      this.landWidth = landWidth;
-      this.landLength = landLength;
-    }
-    
-    draw = () => {
-      c.save();
-      c.beginPath();
-      c.arc(center.x, center.y, 120, 0, Math.PI * 2, false);
-      c.clip();
-      c.beginPath();
-      c.moveTo(this.x, this.y);
-      c.lineCap = 'round';
-      c.lineWidth = this.landWidth;
-      c.lineTo(this.x + this.landLength,this.y);
-      c.strokeStyle = '#85cc66';
-      c.stroke();
-      c.restore();
-    };
-
-    update = () => {
-      if(this.x < (center.x-240)){
-        this.x = center.x +240;
-      }
-      this.x -= this.dx;
-      this.draw();
-    };
-
-  }
-
-  class SemiCircle {
-    private x: number;
-    private y: number;
-    private radius: number;
-    private fillColor: string;
-
-    constructor (x: number,y: number,radius: number,fillColor: string) {
-      this.x = x;
-      this.y = y;
-      this.radius = radius;
-      this.fillColor = fillColor;
-  
-      c.beginPath();
-      c.arc(this.x, this.y, this.radius, Math.PI * 1.5, 1.5, false);
-      c.fillStyle = this.fillColor;
-      c.fill();
-    }
-  }
-
-  // class Star {
-  //   private rot: number;
-  //   private x: number;
-  //   private y: number;
-  //   private spikes: number;
-  //   private outerRadius: number;
-  //   private innerRadius: number;
-  //   private step: number;
-
-  //   constructor (cx: number, cy: number, spikes: number, outerRadius: number, innerRadius: number) {
-  //     this.rot = Math.PI / 2 * 3;
-  //     this.x = cx;
-  //     this.y = cy;
-  //     this.spikes = spikes;
-  //     this.outerRadius = outerRadius;
-  //     this.innerRadius = innerRadius;
-    
-  //     this.step = Math.PI / this.spikes;
-
-  //     c.strokeSyle = '#000';
-  //     c.beginPath();
-  //     c.moveTo(cx, cy - this.outerRadius);
-  //     for (let i = 0; i < this.spikes; i++) {
-  //       this.x = cx;
-  //       this.y = cy;
-  //       let x = cx + Math.cos(this.rot) * this.outerRadius;
-  //       let y = cy + Math.sin(this.rot) * this.outerRadius;
-  //       c.lineTo(x, y);
-  //       this.rot += this.step;
-
-  //       x = cx + Math.cos(this.rot) * this.innerRadius;
-  //       y = cy + Math.sin(this.rot) * this.innerRadius;
-  //       c.lineTo(x, y);
-  //       this.rot += this.step;
-  //     }
-  //     c.lineTo(cx, cy - this.outerRadius);
-  //     c.closePath();
-  //     c.lineWidth=5;
-  //     c.strokeStyle='rgb(32, 66, 136)';
-  //     c.stroke();
-  //     c.fillStyle='skyblue';
-  //     c.fill();
-  //   }
-  // }
 
   //Initial object arrays
-  const earthWidth = 120;
-  let planets = [{x: 20, y: 10, radius: 0, fillColor: ''}];
+  const sunWidth = 60;
   let clouds = [{x: 20, y: 10, update: () => {}}];
-  let land = [{x: 20, y: 10, update: () => {}}];
-  // let stars = [{x: 10, y:10, spikes: 0, innerRadius: 0, outerRadius: 0}];
 
-  let dd = 1; // speed of orbit
-  let angle = 20;
+  let center = { x: canvas.width / 1.5, y: canvas.height / 2 };
   let cx = center.x;
   let cy = center.y;
-  let radius = 285;
+  const radius = 100; // orbit radius
+
+  let sun;
 
   let satellite: Satellite;
-  let satelliteRing;
-  let ring3;
-  let ring2;
-  let ring1;
-  let earthBorder;
-  let earth;
+  let satelliteRing: SatellitePath;
+  let mercAngle = 30; // starting position on orbit path
+  
+  let venus: Satellite;
+  let venusRing: SatellitePath;
+  let venusAngle = 15;
 
-  // const drawStars = (a: number) => {
-  //   for (let i = 0; i <= a; ++i) {
-  //     const bestLocation = sample(stars);
-  //     stars.push(new Star(bestLocation[0], bestLocation[1], 4, Math.floor(Math.random() * 4) + 2, 1));
-  //   }
-  // };
+  let earth: Satellite;
+  let earthRing: SatellitePath;
+  let earthAngle = 10;
 
-  const drawPlanets = (a: number) => {
-    for (let i = 0; i <= a; ++i) {
-      const bestLocation = sample(planets);
-      planets.push(new Circle(bestLocation[0], bestLocation[1], Math.random() * 5, 'rgb(32, 66, 136)'));
-    }
+  let mars: Satellite;
+  let marsRing: SatellitePath;
+  let marsAngle = 25;
+
+  let jupiter: Satellite;
+  let jupiterRing: SatellitePath;
+  let jupiterAngle = 20;
+
+  let saturn: Satellite;
+  let saturnRing: SatellitePath;
+  let saturnAngle = 5;
+
+  let uranus: Satellite;
+  let uranusRing: SatellitePath;
+  let uranusAngle = 35;
+
+  let neptune: Satellite;
+  let neptuneRing: SatellitePath;
+  let neptuneAngle = 40;
+
+  const drawPlanet = () => {
+    sun = new Circle(center.x,center.y, sunWidth, '#f7c202');
+  };
+
+  const drawSatellites = () => {
+    satellite = new Satellite(cx, cy, radius, 5, 1, 'rgb(166, 130, 2)');
+    satelliteRing = new SatellitePath(center.x, center.y, radius, 'rgba(128, 128, 128, 0.1)');
+
+    venus = new Satellite(cx, cy, radius*1.5, 14, 0.8, 'rgb(194, 106, 6)');
+    venusRing = new SatellitePath(center.x, center.y, radius*1.5, 'rgba(128, 128, 128, 0.1)');
+
+    earth = new Satellite(cx, cy, radius*2, 15, 0.6, '#cdd2b4');
+    earthRing = new SatellitePath(center.x, center.y, radius*2, 'rgba(128, 128, 128, 0.1)');
+
+    mars = new Satellite(cx, cy, radius*2.5, 11, 0.5, 'rgb(173, 32, 3)');
+    marsRing = new SatellitePath(center.x, center.y, radius*2.5, 'rgba(128, 128, 128, 0.1)');
+
+    jupiter = new Satellite(cx, cy, radius*3, 30, 0.3, 'rgb(232, 154, 65)');
+    jupiterRing = new SatellitePath(center.x, center.y, radius*3, 'rgba(128, 128, 128, 0.1)');
+
+    saturn = new Satellite(cx, cy, radius*3.5, 25, 0.2, 'rgb(230, 193, 108)');
+    saturnRing = new SatellitePath(center.x, center.y, radius*3.5, 'rgba(128, 128, 128, 0.1)');
+
+    uranus = new Satellite(cx, cy, radius*4, 20, 0.1, 'rgb(59, 161, 157)');
+    uranusRing = new SatellitePath(center.x, center.y, radius*4, 'rgba(128, 128, 128, 0.1)');
+
+    neptune = new Satellite(cx, cy, radius*4.5, 20, 0.1, 'rgb(14, 40, 110)');
+    neptuneRing = new SatellitePath(center.x, center.y, radius*4.5, 'rgba(128, 128, 128, 0.1)');
   };
 
   const drawClouds = (a: number) => {
@@ -306,30 +215,6 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
       const dx = (Math.random() + 0.2 )* 1;
       clouds.push(new Cloud(bestLocation[0], bestLocation[1], dx, cloudWidth, cloudLength));
     }
-  };
-
-  const drawLand = (a: number) => {
-    for (let i = 0; i <= a; ++i) {
-      const bestLocation = earthMask(land);
-      const landWidth = Math.floor(Math.random() * 25) + 10;
-      const landLength = Math.floor(Math.random() * 30) + 18;
-      const dx = 0.5;
-      land.push(new Land(bestLocation[0], bestLocation[1], dx, landWidth, landLength));
-    }
-  };
-
-  //Use best candidate algorithm to evenly distribute across the canvas
-  const sample = (samples: { x: number; y: number; }[]) => {
-    let bestCandidate, bestDistance = 0;
-    for (let i = 0; i < 20; ++i) {
-      const c = [Math.random() * canvas.width, Math.random() * canvas.height],
-        d = distance(findClosest(samples, c), c);
-      if (d > bestDistance) {
-        bestDistance = d;
-        bestCandidate = c;
-      }
-    }
-    return bestCandidate;
   };
 
   //Use best candidate algorithm to evenly distribute across the earth mask
@@ -356,7 +241,7 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
 
 
   const findClosest = (points: any[], b: number[]) => {
-    let distance = null;
+    let distance;
     let closestPoint;
     for (let i = 0; i < points.length; ++i) {
       const dx = points[i].x - b[0];
@@ -374,24 +259,14 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
 
   const reDraw = () => {
     center = { x: canvas.width / 1.5, y: canvas.height / 2 };
-    planets = [{x: 20, y: 10, radius: 0, fillColor: ''}];
     clouds = [{x: 20, y: 10, update: () => {}}];
-    land = [{x: 20, y: 10, update: () => {}}];
-    // stars = [{x: 10, y:10, spikes: 0, innerRadius: 0, outerRadius: 0}];
 
-    dd = 1;
-    angle = 20;
     cx = center.x;
     cy = center.y;
-    radius = 285;
 
-    drawPlanets(50);
-    // drawStars(20);
-    drawClouds(25);
-    drawLand(15);
-
+    drawClouds(40);
     drawPlanet();
-    drawSatellite();
+    drawSatellites();
   };
 
   const resizeCanvasToDisplaySize = () => {
@@ -411,70 +286,29 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
   };
 
   //Generate how many elements you want
-  drawPlanets(50);
-  // drawStars(20);
-  drawClouds(25);
-  drawLand(15);
-
-  //Sloppy code for two randomly generated shooting stars
-  // const shootingStar = new ShootingStar(10,10,8,8,2,'#2c62c2');
-  // const shootingStar2 = new ShootingStar(400,300,-8,8,2,'#2c62c2');
-
-  // const resetShootingStar = () => {
-  //   shootingStar.reset();
-  // };
-
-  // const resetShootingStar2 = () => {
-  //   shootingStar2.reset();
-  // };
-
-  // window.setInterval(resetShootingStar, 3000);
-  // window.setInterval(resetShootingStar2, 5000);
-
-  const drawPlanet = () => {
-    ring3 = new Circle(center.x,center.y, 245,'rgba(10, 23, 66, 0.5)');
-    ring2 = new Circle(center.x,center.y, 215,'rgba(9, 30, 75, 0.5)');
-    ring1 = new Circle(center.x,center.y, 175,'rgba(8, 34, 83, 0.5)');
-    earthBorder = new Circle(center.x,center.y, 135,'rgb(12, 20, 56)');
-    earth = new Circle(center.x,center.y, earthWidth,'rgb(25, 118, 181)');
-  };
-
-  const drawSatellite = () => {
-    satellite = new Satellite();
-    satelliteRing = new SatellitePath(center.x, center.y, radius, 'rgba(128, 128, 128, 0.1)');
-  };
+  drawClouds(40);
 
   // Animate canvas
   const animate = () => {
     requestAnimationFrame(animate);
 
     c.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // c.fillStyle = 'rgba(11, 21, 56, 0.3)';
-    // c.fillRect(0, 0, canvas.width, canvas.height);
-    // shootingStar.update();
-    // shootingStar2.update();
-  
-    // for (let i = 0; i < stars.length; i++) {
-    //   new Star(stars[i].x, stars[i].y, stars[i].spikes, stars[i].innerRadius, stars[i].outerRadius);
-    // }
-
-
-    for (let i = 0; i < planets.length; i++) {
-      new Circle(planets[i].x, planets[i].y, planets[i].radius, planets[i].fillColor);
-    }
 
     drawPlanet();
-    drawSatellite();
+    drawSatellites();
 
-    for (let i = 1; i < land.length; i++){
-      land[i].update();
-    }
-    for (let i = 1; i < clouds.length; i++){
+    for (let i = 1; i < clouds.length; i++) {
       clouds[i].update();
     }
-    satellite.update();
-    const semi = new SemiCircle(center.x, center.y, earthWidth, 'rgba(0, 0, 0, 0.4)');
+
+    mercAngle = satellite.update(mercAngle);
+    venusAngle = venus.update(venusAngle);
+    earthAngle = earth.update(earthAngle);
+    marsAngle = mars.update(marsAngle);
+    jupiterAngle = jupiter.update(jupiterAngle);
+    saturnAngle = saturn.update(saturnAngle);
+    uranusAngle = uranus.update(uranusAngle);
+    neptuneAngle = neptune.update(neptuneAngle);
   };
 
   
