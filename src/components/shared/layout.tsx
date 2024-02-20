@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import PropTypes from 'prop-types';
 import Nav from './nav';
 import Footer from './footer';
-import MetaData from './metaData';
 import '../../styles/styles.scss';
 
 interface Props {
@@ -13,7 +12,6 @@ interface Props {
 const Layout: FC<Props> = ({ children }) => {
   return (
     <>
-      <MetaData />
       <Nav />
       {children}
       <Footer />

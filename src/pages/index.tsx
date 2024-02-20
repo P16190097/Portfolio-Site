@@ -1,7 +1,6 @@
 import * as React from 'react';
+import SEO from '../components/shared/metaData';
 import Layout from '../components/shared/layout';
-import { Helmet } from 'react-helmet';
-// import { Link } from "gatsby"
 import HeroBanner from '../components/home/heroBanner';
 import AboutMe from '../components/home/aboutMe';
 import Associates from '../components/home/associates';
@@ -12,25 +11,34 @@ import Socials from '../components/home/socials';
 // styles
 const pageStyles = {
   color: '#232129',
-  fontFamily: 'Roboto, Neue Helvetica, sans-serif, serif',
+  fontFamily: 'Poppins, Roboto, Neue Helvetica, sans-serif, serif',
 };
+
+export const Head = () => (
+  <>
+    <title>Josh Mayo - Web developer | joshmayo.co.uk</title>
+    <SEO />
+  </>
+);
 
 // markup
 const IndexPage = () => {
   return (
-    <Layout>
-      <Helmet>
-        <title>Josh Mayo - Web developer | joshmayo.co.uk</title>
-      </Helmet>
-      <main style={pageStyles}>
-        <HeroBanner />
-        <AboutMe />
-        <Associates />
-        <Skills />
-        <Projects />
-        <Socials />
-      </main>
-    </Layout>
+    <div className='parallax'>
+      <Layout>
+        <main style={pageStyles}>
+          <HeroBanner />
+          <AboutMe />
+          <Associates />
+          <Skills />
+          <Projects />
+          <Socials />
+        </main>
+        <div className='parallax__layer parallax__layer--back2'>
+          <div id='stars3'></div>
+        </div>
+      </Layout>
+    </div>
   );
 };
 

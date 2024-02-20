@@ -17,24 +17,24 @@ const Footer = () => {
           tileGap={10}
           tileBorderRadii={5}
           tiles={[
-            {
-              text: 'facebook-f',
-              fill: '#4267b2',
-              shadow: '#1a2947',
-              href: 'https://www.facebook.com/'
-            },
+            // {
+            //   text: 'facebook-f',
+            //   fill: '#4267b2',
+            //   shadow: '#1a2947',
+            //   href: 'https://www.facebook.com/'
+            // },
             {
               text: 'github',
               fill: '#282828',
               shadow: '#1a1a1a',
               href: 'https://github.com/p16190097'
             },
-            {
-              text: 'twitter',
-              fill: '#1dcaff',
-              shadow: '#0084b4',
-              href: 'https://twitter.com/'
-            },
+            // {
+            //   text: 'twitter',
+            //   fill: '#1dcaff',
+            //   shadow: '#0084b4',
+            //   href: 'https://twitter.com/'
+            // },
             {
               text: 'linkedin-in',
               fill: '#0a66c2',

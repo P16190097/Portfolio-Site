@@ -8,11 +8,72 @@ $FontColor: #fff;
 
 $AltBackground: rgb(24, 24, 24);
 
+@function multiple-box-shadow ($n) {
+  $value: '#{random(2000)}px #{random(2000)}px rgb(70, 98, 156)';
+  @for $i from 2 through $n {
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px rgb(70, 98, 156)';
+  }
+
+  @return unquote($value)
+}
+
+$shadows-small:  multiple-box-shadow(700);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big:    multiple-box-shadow(150);
+
 @font-face {
   font-family: "Font Awesome Brands";
   src: url(./fonts/Font-Awesome-5-Brands-Regular-400.otf);
   font-weight: 400;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(./fonts/Poppins-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+#stars3 {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: $shadows-big;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadows-big;
+  }
+}
+
+.parallax {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 1px;
+  perspective: 1px;
+  scroll-behavior: smooth;
+}
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.parallax__layer--back2 {
+  -webkit-transform: translateZ(-4px) scale(5);
+  transform: translateZ(-4px) scale(5);
 }
 
 * {
@@ -27,8 +88,8 @@ body {
 
 body {
   margin: unset;
-  font-family: "Roboto", "Neue Helvetica", sans-serif, serif;
-  background-color: $PrimaryBackgroundColor;
+  font-family: "Poppins", "Roboto", "Neue Helvetica", sans-serif, serif;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -166,11 +227,19 @@ nav {
   background-color: #061825;
 }
 
+@media screen and (max-width: 375px) {
+  nav {
+    display: none;
+  }
+}
+
 /******** section styles *******/
 
 section {
   // background-color: $SecondaryBackgroundColor;
   padding: 80px 0;
+  display: flex;
+  min-height: 100vh;
 
   .content-container {
     margin: auto;
@@ -347,6 +416,7 @@ section {
 
 .hero-canvas {
   height: 100vh !important;
+  min-height: 942px;
   width: 100%;
 }
 
@@ -365,11 +435,60 @@ section {
     text-align: center;
     font-size: 40px;
     width: 275px;
+    cursor: default;
 
     img {
       border-radius: 50%;
       height: 50%;
       width: 151.25px;
+    }
+
+    span {
+      transition: all linear 0.1s;
+    }
+
+    // span:hover {
+    //   font-size: 50px;
+    // }
+
+    .sun:hover {
+      color: #f7c202;
+    }
+
+    .mercury:hover {
+      color: #a68202
+    }
+
+    .venus:hover {
+      color: #c26a06
+    }
+
+    .earth:hover {
+      color: #257d00
+    }
+
+    .mars:hover {
+      color: #ad2003
+    }
+
+    .jupiter:hover {
+      color: #e89a41
+    }
+
+    .saturn:hover {
+      color: #e6c16c
+    }
+
+    .uranus:hover {
+      color: #3ba19d
+    }
+
+    .neptune:hover {
+      color: #0e286e
+    }
+
+    .pluto:hover {
+      color: #9c6e3a
     }
   }
 
@@ -381,14 +500,6 @@ section {
 
   .hero-subtitle {
     color: $HighlightColor;
-  }
-
-  .hero-icons {
-    padding-top: 10px;
-
-    a {
-      padding: 0px 5px;
-    }
   }
 }
 
