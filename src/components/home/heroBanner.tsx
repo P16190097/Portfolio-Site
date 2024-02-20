@@ -25,7 +25,7 @@ const HeroBanner = () => {
             <span className="pluto">o</span>
           </div>
           <div className="hero-title-divider"></div>
-          <div className="hero-subtitle">Web Developer</div>
+          <div className="hero-subtitle">Front-End web {'<developer/>'}</div>
         </div>
       </div>
       <canvas className="hero-canvas" ref={canvasRef} />
