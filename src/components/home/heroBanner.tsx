@@ -11,7 +11,19 @@ const HeroBanner = () => {
       <div className="hero-overlay">
         <div className="hero-title">
           <img src={headshot} alt="avatar" />
-          <div>Joshua Mayo</div>
+          <div>
+            <span className="sun">J</span>
+            <span className="mercury">o</span>
+            <span className="venus">s</span>
+            <span className="earth">h</span>
+            <span className="mars">u</span>
+            <span className="jupiter">a</span>
+            <span> </span>
+            <span className="saturn">M</span>
+            <span className="uranus">a</span>
+            <span className="neptune">y</span>
+            <span className="pluto">o</span>
+          </div>
           <div className="hero-title-divider"></div>
           <div className="hero-subtitle">Web Developer</div>
         </div>

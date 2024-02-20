@@ -6,7 +6,7 @@ const Socials = () => {
   return(
     <section id="socials">
       <InView triggerOnce={true}>
-        {({ inView, ref, /* entry */ }) => (
+        {({ inView, ref }) => (
           <div className={inView ? 'content-container fade-in show' : 'content-container fade-in'} ref={ref}>
             <div className="socials-container">
               <div className="socials-text">
@@ -25,24 +25,24 @@ const Socials = () => {
                 tileGap={0}
                 tileBorderRadii={9}
                 tiles={[
-                  {
-                    text: 'facebook-f',
-                    fill: '#4267b2',
-                    shadow: '#1a2947',
-                    href: 'https://www.facebook.com/'
-                  },
+                  // {
+                  //   text: 'facebook-f',
+                  //   fill: '#4267b2',
+                  //   shadow: '#1a2947',
+                  //   href: 'https://www.facebook.com/'
+                  // },
                   {
                     text: 'github',
                     fill: '#282828',
                     shadow: '#1a1a1a',
                     href: 'https://github.com/p16190097'
                   },
-                  {
-                    text: 'twitter',
-                    fill: '#1dcaff',
-                    shadow: '#0084b4',
-                    href: 'https://twitter.com/'
-                  }
+                  // {
+                  //   text: 'twitter',
+                  //   fill: '#1dcaff',
+                  //   shadow: '#0084b4',
+                  //   href: 'https://twitter.com/'
+                  // }
                 ]}
               />
             </div>

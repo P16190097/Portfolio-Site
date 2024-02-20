@@ -59,6 +59,7 @@ $shadows-big:    multiple-box-shadow(150);
   overflow-y: auto;
   -webkit-perspective: 1px;
   perspective: 1px;
+  scroll-behavior: smooth;
 }
 
 .parallax__layer {
@@ -226,11 +227,19 @@ nav {
   background-color: #061825;
 }
 
+@media screen and (max-width: 375px) {
+  nav {
+    display: none;
+  }
+}
+
 /******** section styles *******/
 
 section {
   // background-color: $SecondaryBackgroundColor;
   padding: 80px 0;
+  display: flex;
+  min-height: 100vh;
 
   .content-container {
     margin: auto;
@@ -407,7 +416,7 @@ section {
 
 .hero-canvas {
   height: 100vh !important;
-  min-height: 929px;
+  min-height: 942px;
   width: 100%;
 }
 
@@ -426,11 +435,60 @@ section {
     text-align: center;
     font-size: 40px;
     width: 275px;
+    cursor: default;
 
     img {
       border-radius: 50%;
       height: 50%;
       width: 151.25px;
+    }
+
+    span {
+      transition: all linear 0.1s;
+    }
+
+    // span:hover {
+    //   font-size: 50px;
+    // }
+
+    .sun:hover {
+      color: #f7c202;
+    }
+
+    .mercury:hover {
+      color: #a68202
+    }
+
+    .venus:hover {
+      color: #c26a06
+    }
+
+    .earth:hover {
+      color: #257d00
+    }
+
+    .mars:hover {
+      color: #ad2003
+    }
+
+    .jupiter:hover {
+      color: #e89a41
+    }
+
+    .saturn:hover {
+      color: #e6c16c
+    }
+
+    .uranus:hover {
+      color: #3ba19d
+    }
+
+    .neptune:hover {
+      color: #0e286e
+    }
+
+    .pluto:hover {
+      color: #9c6e3a
     }
   }
 

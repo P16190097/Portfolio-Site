@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import earthImage from '../images/icons8-earth-48.png';
+import saturnImage from '../images/saturn-94.png';
+
 const drawHeroPlanet = (canvasRef: { current: any; }) => {
   const canvas = canvasRef.current;
   const c = canvas.getContext('2d');
@@ -94,6 +97,46 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
     };
   }
 
+  class PlanetImage {
+    private x: number;
+    private y: number;
+    private radius: number;
+    private speed: number;
+    private image: string;
+    private offset: number;
+
+    constructor (x: number, y: number, radius: number, speed: number, offset: number, image: string) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.speed = speed;
+      this.offset = offset;
+      this.image = image;
+    }
+
+    draw = (newX: number, newY: number) => {
+      const image = new Image();
+      image.src = this.image;
+      c.save();
+      c.beginPath();
+      c.drawImage(image, newX-this.offset, newY-this.offset);
+      c.restore();
+    };
+
+    update = (angle) => {
+      // increase the angle of rotation
+      const newAngle = angle + Math.acos(1-Math.pow(this.speed/this.radius,2)/2);
+
+      // calculate the new ball.x / ball.y
+      const newX = this.x + this.radius * Math.cos(newAngle);
+      const newY = this.y + this.radius * Math.sin(newAngle);
+
+      this.draw(newX, newY);
+
+      return newAngle;
+    };
+  }
+
   class Cloud {
     private x: number;
     private y: number;
@@ -145,15 +188,15 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
 
   let sun;
 
-  let satellite: Satellite;
-  let satelliteRing: SatellitePath;
+  let mercury: Satellite;
+  let mercuryRing: SatellitePath;
   let mercAngle = 30; // starting position on orbit path
   
   let venus: Satellite;
   let venusRing: SatellitePath;
   let venusAngle = 15;
 
-  let earth: Satellite;
+  let earth: PlanetImage;
   let earthRing: SatellitePath;
   let earthAngle = 10;
 
@@ -165,7 +208,7 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
   let jupiterRing: SatellitePath;
   let jupiterAngle = 20;
 
-  let saturn: Satellite;
+  let saturn: PlanetImage;
   let saturnRing: SatellitePath;
   let saturnAngle = 5;
 
@@ -182,29 +225,31 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
   };
 
   const drawSatellites = () => {
-    satellite = new Satellite(cx, cy, radius, 5, 1, 'rgb(166, 130, 2)');
-    satelliteRing = new SatellitePath(center.x, center.y, radius, 'rgba(128, 128, 128, 0.1)');
+    mercury = new Satellite(cx, cy, radius*0.8, 5, 1, 'rgb(166, 130, 2)');
+    mercuryRing = new SatellitePath(center.x, center.y, radius*0.8, 'rgba(128, 128, 128, 0.1)');
 
-    venus = new Satellite(cx, cy, radius*1.5, 14, 0.8, 'rgb(194, 106, 6)');
-    venusRing = new SatellitePath(center.x, center.y, radius*1.5, 'rgba(128, 128, 128, 0.1)');
+    venus = new Satellite(cx, cy, radius*1.2, 14, 0.8, 'rgb(194, 106, 6)');
+    venusRing = new SatellitePath(center.x, center.y, radius*1.2, 'rgba(128, 128, 128, 0.1)');
 
-    earth = new Satellite(cx, cy, radius*2, 15, 0.6, '#cdd2b4');
-    earthRing = new SatellitePath(center.x, center.y, radius*2, 'rgba(128, 128, 128, 0.1)');
+    earth = new PlanetImage(cx, cy, radius*1.8, 0.6, 24, earthImage);
+    // earth = new Satellite(cx, cy, radius*2, 15, 0.6, 'rgb(6, 100, 194)');
+    earthRing = new SatellitePath(center.x, center.y, radius*1.8, 'rgba(128, 128, 128, 0.1)');
 
-    mars = new Satellite(cx, cy, radius*2.5, 11, 0.5, 'rgb(173, 32, 3)');
-    marsRing = new SatellitePath(center.x, center.y, radius*2.5, 'rgba(128, 128, 128, 0.1)');
+    mars = new Satellite(cx, cy, radius*2.3, 11, 0.5, 'rgb(173, 32, 3)');
+    marsRing = new SatellitePath(center.x, center.y, radius*2.3, 'rgba(128, 128, 128, 0.1)');
 
     jupiter = new Satellite(cx, cy, radius*3, 30, 0.3, 'rgb(232, 154, 65)');
     jupiterRing = new SatellitePath(center.x, center.y, radius*3, 'rgba(128, 128, 128, 0.1)');
 
-    saturn = new Satellite(cx, cy, radius*3.5, 25, 0.2, 'rgb(230, 193, 108)');
-    saturnRing = new SatellitePath(center.x, center.y, radius*3.5, 'rgba(128, 128, 128, 0.1)');
+    saturn = new PlanetImage(cx, cy, radius*3.7, 0.6, 30, saturnImage);
+    // saturn = new Satellite(cx, cy, radius*3.5, 25, 0.2, 'rgb(230, 193, 108)');
+    saturnRing = new SatellitePath(center.x, center.y, radius*3.7, 'rgba(128, 128, 128, 0.1)');
 
-    uranus = new Satellite(cx, cy, radius*4, 20, 0.1, 'rgb(59, 161, 157)');
-    uranusRing = new SatellitePath(center.x, center.y, radius*4, 'rgba(128, 128, 128, 0.1)');
+    uranus = new Satellite(cx, cy, radius*4.2, 20, 0.1, 'rgb(59, 161, 157)');
+    uranusRing = new SatellitePath(center.x, center.y, radius*4.2, 'rgba(128, 128, 128, 0.1)');
 
-    neptune = new Satellite(cx, cy, radius*4.5, 20, 0.1, 'rgb(14, 40, 110)');
-    neptuneRing = new SatellitePath(center.x, center.y, radius*4.5, 'rgba(128, 128, 128, 0.1)');
+    neptune = new Satellite(cx, cy, radius*4.7, 20, 0.1, 'rgb(14, 40, 110)');
+    neptuneRing = new SatellitePath(center.x, center.y, radius*4.7, 'rgba(128, 128, 128, 0.1)');
   };
 
   const drawClouds = (a: number) => {
@@ -301,7 +346,7 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
       clouds[i].update();
     }
 
-    mercAngle = satellite.update(mercAngle);
+    mercAngle = mercury.update(mercAngle);
     venusAngle = venus.update(venusAngle);
     earthAngle = earth.update(earthAngle);
     marsAngle = mars.update(marsAngle);
