@@ -16,7 +16,7 @@ const pageStyles = {
 
 export const Head = () => (
   <>
-    <title>Josh Mayo - Web developer | joshmayo.co.uk</title>
+    <title>Josh Mayo - Web developer | joshmayo.dev</title>
     <SEO />
   </>
 );

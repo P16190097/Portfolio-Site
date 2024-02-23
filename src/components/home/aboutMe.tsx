@@ -9,7 +9,7 @@ const AboutMe = () => {
           <div className={inView ? 'content-container fade-in show' : 'content-container fade-in'} ref={ref}>
             <h1>Hi, I&apos;m Josh. <span className="wave">👋</span></h1>
             <p>
-                I&apos;m a <span className="highlight">graduate web developer</span> based in Northamptonshire, England. I have a 
+                I&apos;m a <span className="highlight">front-end web developer</span> based in Northamptonshire, England. I have a 
                 background in web based software development for the social care sector and have a passion for UI development and out of this world design 
                 currently using Nodejs with React, GraphQL and Postgres.
             </p>
