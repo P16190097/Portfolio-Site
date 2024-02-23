@@ -1,4 +1,4 @@
-FROM node:14.17.4-alpine3.14
+FROM node:20.11.1-alpine3.18
 # RUN apt-get update && apt-get install -y <list of packages>
 RUN apk add --no-cache \
     make g++ && \
@@ -16,7 +16,7 @@ COPY package*.json ./
 # RUN npm install -g gatsby-cli
 RUN npm install
 
-COPY gatsby-config.js .
+COPY gatsby-config.ts .
 # If you are building your code for production
 # RUN npm ci --only=production
 # RUN npm run build
@@ -24,5 +24,5 @@ COPY gatsby-config.js .
 # Bundle app source
 COPY . .
 
-EXPOSE 80
+EXPOSE 8080
 CMD npm run serve-prod
