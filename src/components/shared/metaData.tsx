@@ -5,12 +5,17 @@ import thumbnail from '../../images/thumbnail.png';
 const SEO = () => {
   return (
     <>
-      <meta name="og:description" content="I'm a front-end web developer based in Northamptonshire, England. I have a 
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="robots" content="index" />
+      <meta property="og:site_name" content="Joshua Mayo Web development" />
+      <meta property="og:description" content="I'm a front-end web developer based in Northamptonshire, England. I have a 
                 background in web based software development for the social care sector and have a passion for UI development and out of this world design 
                 currently using Nodejs with React, GraphQL and Postgres." />
-      <meta name="og:image" content={thumbnail} /> 
-      <meta name="keywords" content="web developer, josh mayo, nodejs, react, graphql, gql, postgres, c#, .net core, .net framework, mysql, postgres, css3, html5, javascript, typescript" />
-      <meta name="description" content="I'm a front-end web developer based in Northamptonshire, England. I have a 
+      <meta property="og:image" content={thumbnail} /> 
+      <meta name="og:locale" content="en-GB" />
+      <meta property="site_name" content="Joshua Mayo Web development" />
+      <meta property="keywords" content="web developer, josh mayo, nodejs, react, graphql, gql, postgres, c#, .net core, .net framework, mysql, postgres, css3, html5, javascript, typescript" />
+      <meta property="description" content="I'm a front-end web developer based in Northamptonshire, England. I have a 
                 background in web based software development for the social care sector and have a passion for UI development and out of this world design 
                 currently using Nodejs with React, GraphQL and Postgres." />
       <link rel="icon" type="image/png" sizes="16x16" href={favicon} />

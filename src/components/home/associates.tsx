@@ -8,7 +8,7 @@ const Associates = () => {
   return (
     <section id="associates">
       <InView triggerOnce={true}>
-        {({ inView, ref, /* entry */ }) => (
+        {({ inView, ref }) => (
           <div className={inView ? 'content-container fade-in show' : 'content-container fade-in'} ref={ref}>
             <div>
               <h1>Check out these companies I&apos;ve worked with...</h1>
@@ -19,7 +19,7 @@ const Associates = () => {
             <a href="https://www.olmsystems.com/" target="_blank" rel="noreferrer">
               <img alt="OLM" src={OLM} />
             </a>
-            <a href="https://www.liammayophotography.co.uk/" target="_blank" rel="noreferrer">
+            <a href="http://www.liammayophotography.co.uk/" target="_blank" rel="noreferrer">
               <img alt="Liam Mayo Photography" src={LIAM} />
             </a>
           </div>
