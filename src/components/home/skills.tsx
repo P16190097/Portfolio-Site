@@ -44,7 +44,6 @@ const Skills = () => {
               <ul>
                 <li>C# .Net Core/Framework</li>
                 <li>Nodejs</li>
-                <li>Php</li>
                 <li>GraphQL</li>
                 <li>Docker</li>
                 <li>IIS</li>

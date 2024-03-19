@@ -1,7 +1,9 @@
 import React from 'react';
-import { InView } from 'react-intersection-observer';
-import Project from './project';
+import { useInView } from 'react-intersection-observer';
+import PropTypes from 'prop-types';
+import { ExternalIcon, GithubIcon } from '@components/icons';
 import CuddlyIcon from '../../images/projects/final-logo.png';
+import PortfolioIcon from '../../images/thumbnail.png';
 import NasaIcon from '../../images/projects/nasa-logo.png';
 import GraphQLIcon from '../../images/logos/graphql.svg';
 import ReactIcon from '../../images/logos/react.svg';
@@ -10,53 +12,114 @@ const projectsList = [
   {
     logo: CuddlyIcon,
     title: 'Cuddly Bot',
-    subTitle: <a href="https://github.com/Cuddly-Engine/cuddly-bot" target="_blank" rel="noreferrer" className="project-link">Check it out</a>,
-    text: `A collaborative project in which we created a modular discord bot using Nodejs capable of requesting 
-      data from 3rd party APIs to format and display in a Discord server channel.`,
+    githubLink: 'https://github.com/Cuddly-Engine/cuddly-bot',
+    externalLink: null,
+    text: `A modular discord bot built using Nodejs to request data from 3rd party APIs, 
+      format and then post to a Discord server channel.`,
+    tags: ['Discord', 'Nodejs']
+  },
+  {
+    logo: PortfolioIcon,
+    title: 'Portfolio site',
+    githubLink: 'https://github.com/joshmayo/Portfolio-Site',
+    externalLink: 'https://joshmayo.dev',
+    text: 'My new portfolio site to show off my stuff built with Gatsby, Typescript and SASS',
+    tags: ['Gatsby', 'Typescript', 'SASS']
   },
   {
     logo: NasaIcon,
     title: 'ISS tracker',
-    subTitle: <><a href="https://github.com/P16190097/Space-Site" target="_blank" rel="noreferrer" className="project-link">Check it out</a> / <a href="https://p16190097.github.io/Space-Site/" target="_blank" rel="noreferrer" className="project-link">Visit the site</a></>,
-    text: `A university project where I was tasked with building a web site from scratching with an emphasis on 
-      implementing modern web practises and features offered by HTML5, CSS3 and javascript ES6 using mobile 
-      first design philosophy.`,
+    githubLink: 'https://github.com/joshmayo/Space-Site',
+    externalLink: 'https://joshmayo.github.io/Space-Site/',
+    text: 'A simple website built to demonstrate mobile first design philosophy with HTML5 and CSS3 features',
+    tags: ['Mobile first design', 'HTML5', 'CSS3']
   },
   {
     logo: GraphQLIcon,
     title: 'Synergy Server',
-    subTitle: <a href="https://github.com/P16190097/Synergy-Server" target="_blank" rel="noreferrer" className="project-link">Check it out</a>,
-    text: `A GraphQL API build to serve as the server-side of the Discord/Slack-esque Synergy application stack, a personal project 
-      built to demonstrate how websockets can be used to communicate real time data between a server and client.`,
+    githubLink: 'https://github.com/joshmayo/Synergy-Server',
+    externalLink: null,
+    text: `A GraphQL API to serve as the Discord/Slack-esque Synergy application, a personal project built to 
+      demonstrate how websocket connections can power chat logs.`,
+    tags: ['Nodejs', 'GraphQL', 'Sequalize']
   },
   {
     logo: ReactIcon,
     title: 'Synergy Client',
-    subTitle: <a href="https://github.com/P16190097/Synergy-Client" target="_blank" rel="noreferrer" className="project-link">Check it out</a>,
-    text: `A React UI application built to serve as the primary interface for the Synergy stack, a personal project 
-      using GraphQL subscriptions to send and receive messages in real-time and secured using Json Web Token authentication.`,
+    githubLink: 'https://github.com/joshmayo/Synergy-Client',
+    externalLink: null,
+    text: `A React application built to serve as the interface for the Synergy backend, a personal project which
+      uses GraphQL subscriptions to power chat feeds and secured using Json Web Token authentication.`,
+    tags: ['Reactjs', 'Apollo GraphQL']
   }
 ];
+
+const Project = ({ project: { logo, title, githubLink, externalLink, text, tags }, index }) => {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+    triggerOnce: true
+  });
+
+  return (
+    <div className={`project-container ${inView ? 'fadeup-enter-active':'fadeup-enter'}`} ref={ref} style={{ transitionDelay: `${index + 1}00ms` }}>
+      <div className="project-inner">
+        <div className="project-header">
+          <div className="project-top">
+            <div>
+              <img src={logo} className="project-icon" />
+            </div>
+            <div className="project-links">
+              {githubLink && <a href={githubLink} target="_blank" rel="noreferrer"><GithubIcon /></a>}
+              {externalLink && <a href={externalLink} target="_blank" rel="noreferrer"><ExternalIcon /></a>}
+            </div>
+          </div>
+          <div className="project-title">
+            <h2><a href={githubLink}>{title}</a></h2>
+          </div>
+          <div className="project-description">
+            <p>
+              {text}
+            </p>
+          </div>
+        </div>
+        <div className="project-footer">
+          <ul>
+            {tags && tags.map((tag, i) => (
+              <li key={`tag-${i}`}>{tag}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+Project.propTypes = {
+  index: PropTypes.number.isRequired,
+  project: PropTypes.shape({
+    logo: PropTypes.string.isRequired, 
+    title: PropTypes.string.isRequired, 
+    githubLink: PropTypes.string.isRequired, 
+    externalLink: PropTypes.string, 
+    text: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired
+};
 
 const Projects = () => {
   return (
     <section id="projects">
-      <InView triggerOnce={true}>
-        {({ inView, ref, /* entry */ }) => (
-          <div className={inView ? 'content-container fade-in show' : 'content-container fade-in'} ref={ref}>
-            {/* <h1>Pet Projects</h1> */}
-            {projectsList.map((project, index) => (
+      <div className="content-container">
+        {projectsList &&
+            projectsList.map((project, i) => (
               <Project 
-                key={`project-${index}`}
-                logo={project.logo}
-                title={project.title}
-                subTitle={project.subTitle}
-                text={project.text}
+                key={`project-${i}`}
+                index={i}
+                project={project}
               />
             ))}
-          </div>
-        )}
-      </InView>
+      </div>
     </section>
   );
 };
