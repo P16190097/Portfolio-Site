@@ -1,12 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'gatsby';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { loaderDelay } from '@utils';
+import { navLinks } from '@config';
 
 const Nav = () => {
   const [scroll, setScroll] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
     window.addEventListener('scroll', () => {
       setScroll(window.scrollY > 10);
     });
   }, []);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsMounted(true);
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const timeout = loaderDelay;
 
   return (
     <nav className={scroll ? 'header-visible' : ''}>
@@ -19,9 +35,17 @@ const Nav = () => {
         </a> */}
         <div className='nav-inner'>
           <ul>
-            <li><a href="/#aboutMe">About Me</a></li>
-            <li><a href="/#projects">Portfolio</a></li>
-            <li><a href="/#socials">Socials</a></li>
+            <TransitionGroup component={null}>
+              {isMounted &&
+                    navLinks &&
+                    navLinks.map(({ url, name }, i) => (
+                      <CSSTransition key={i} classNames="fadedown" timeout={timeout}>
+                        <li key={i} style={{ transitionDelay: `${i * 100}ms` }}>
+                          <Link to={url}>{name}</Link>
+                        </li>
+                      </CSSTransition>
+                    ))}
+            </TransitionGroup>
           </ul>
         </div>
       </div>

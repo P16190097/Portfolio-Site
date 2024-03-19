@@ -5,8 +5,13 @@ $HighlightColor: #ff4c29;
 $HighlightColorMute: #b9290c;
 
 $FontColor: #fff;
+$slate: #8892b0;
+$light-slate: #a8b2d1;
+$lightest-slate: #ccd6f6;
 
 $AltBackground: rgb(24, 24, 24);
+
+$easing: cubic-bezier(0.645,0.045,0.355,1);
 
 @function multiple-box-shadow ($n) {
   $value: '#{random(2000)}px #{random(2000)}px rgb(70, 98, 156)';
@@ -30,7 +35,28 @@ $shadows-big:    multiple-box-shadow(150);
 
 @font-face {
   font-family: "Poppins";
-  src: url(./fonts/Poppins-Regular.ttf);
+  src: url(./fonts/poppins/Poppins-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Mono";
+  src: url(./fonts/sf-mono/SFMonoRegular.otf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./fonts/inter/Inter-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM Mono";
+  src: url(./fonts/dm-mono/DMMono-Regular.ttf);
   font-weight: 400;
   font-style: normal;
 }
@@ -88,7 +114,7 @@ body {
 
 body {
   margin: unset;
-  font-family: "Poppins", "Roboto", "Neue Helvetica", sans-serif, serif;
+  font-family: "Inter", "Poppins", "Roboto", "Neue Helvetica", sans-serif, serif;
   background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   overflow-x: hidden;
   overflow-y: auto;
@@ -98,7 +124,6 @@ main {
   animation: 1s ease-out 0s 1 fadeIn;
 }
 
-a,
 h1,
 h2,
 h3,
@@ -115,6 +140,18 @@ a {
 
 a:hover {
   color: $HighlightColorMute;
+}
+
+.highlight {
+  color: $HighlightColor;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+svg.feather {
+  fill: none;
 }
 
 /*******  scrollbar styles  ******/
@@ -190,6 +227,7 @@ nav {
   justify-content: center;
   z-index: 999;
   transition: background-color linear 0.2s;
+  font-family: "DM Mono", "SF Mono", "Poppins", "Roboto", "Neue Helvetica", sans-serif, serif;
 
   .nav-container {
     display: flex;
@@ -281,6 +319,7 @@ section {
     p {
       width: 50%;
       line-height: 28px;
+      color: $light-slate;
     }
 
     .wave {
@@ -289,34 +328,25 @@ section {
       display: inline-block;
     }
 
-    .highlight {
-      color: $HighlightColor;
+    .associates {
+      a {
+        display: inline-block;
+        filter: grayscale(0.8) brightness(0.5);
+        opacity: 0.5;
+        margin: 30px;
+        transition: filter linear 0.1s;
+      }
+    
+      img {
+        max-height: 100px;
+      }
+    
+      a:hover,
+      a:active {
+        filter: none;
+        opacity: 1;
+      }
     }
-  }
-}
-
-#associates {
-  .content-container {
-    display: block;
-    text-align: center;
-  }
-
-  a {
-    display: inline-block;
-    filter: grayscale(0.8) brightness(0.5);
-    opacity: 0.5;
-    margin: 30px;
-    transition: filter linear 0.1s;
-  }
-
-  img {
-    max-height: 100px;
-  }
-
-  a:hover,
-  a:active {
-    filter: none;
-    opacity: 1;
   }
 }
 
@@ -362,144 +392,316 @@ section {
 
 #projects {
   .content-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
     color: #fff;
 
     .project-container {
-      width: 50%;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      position: relative;
+      cursor: default;
+      
+      .project-inner {
+        padding: 2rem 1.75rem;
+        display: flex;
+        position: relative;
+        height: 100%;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #1B2735;
+        border-radius: 4px;
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-      h1 {
-        font-size: 30px;
+        h1 {
+          font-size: 30px;
+        }
+
+        h4 {
+          margin: 0;
+        }
+
+        p {
+          line-height: 25px;
+        }
+
+        .project-link {
+          font-style: italic;
+        }
+
+        .project-header {
+          .project-top {
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            align-items: center;
+            margin-bottom: 35px;
+
+            .project-links {
+              display: flex;
+              -webkit-box-align: center;
+              align-items: center;
+              margin-right: -10px;
+
+              a {
+                display: flex;
+                position: relative;
+                z-index: 1;
+                -webkit-box-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                align-items: center;
+                padding: 5px 7px;
+                color: $light-slate;
+
+                svg {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+
+              a:hover {
+                color: $HighlightColor;
+              }
+            }
+          }
+
+          .project-title {
+            h2 {
+              margin: 0px 0px 10px;
+              font-size: 22px;
+
+              a {
+                color: $lightest-slate;
+              }
+
+              a:hover {
+                color: $HighlightColor;
+              }
+
+              a::before {
+                content: "";
+                display: block;
+                position: absolute;
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+                top: 0px;
+                left: 0px;
+              }
+            }
+          }
+
+          .project-description {
+            color: $light-slate;
+            font-size: 15px;
+          }
+        }
+
+        .project-footer {
+          ul {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            flex-grow: 1;
+            flex-wrap: wrap;
+            padding: 0px;
+            margin: 20px 0px 0px;
+            list-style: none;
+          }
+
+          li:not(:last-of-type) {
+            margin-right: 15px;
+          }
+
+          li {
+            font-family: "DM Mono", "SF Mono", "Poppins", "Roboto", "Neue Helvetica", sans-serif, serif;
+            font-size: 12px;
+            color: $slate;
+            line-height: 1.75;
+          }
+        }
       }
+    }
 
-      h4 {
-        margin: 0;
-      }
-
-      p {
-        line-height: 28px;
-      }
-
-      .project-link {
-        font-style: italic;
+    .project-container:hover,
+    .project-container:focus-within {
+      .project-inner {
+        transform: translateY(-7px);
       }
     }
 
     .project-icon {
-      max-height: 100px;
+      max-height: 50px;
       // border-radius: 50px;
     }
   }
 }
 
-.fade-in {
-  transition-property: opacity;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in;
-  transition-delay: 0.5s;
-  opacity: 0;
-}
+#contact {
+  .content-container {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
 
-.show {
-  opacity: 1;
+    h2 {
+      margin: 0;
+      font-family: "Inter", "Poppins", "Roboto", "Neue Helvetica", sans-serif, serif;
+      font-weight: 600;
+      font-size: clamp(40px, 8vw, 80px);
+      color: $lightest-slate;
+    }
+
+    p {
+      width: 50%;
+      line-height: 28px;
+      color: $light-slate;
+    }
+
+    a {
+      padding: 1.25rem 1.75rem;
+      border: 1px solid $HighlightColor;
+      border-radius: 4px;
+      margin: 35px 0 0;
+      transition: all linear 0.2s;
+    }
+
+    a:hover {
+      // background-color: $HighlightColor;
+      // color: #fff;
+
+      box-shadow: 4px 4px 0 0 $HighlightColor;
+      transform: translate(-5px, -5px);
+    }
+  }
 }
 
 /************ hero styles ***********/
+#home {
+  padding: 0;
 
-.hero-canvas {
-  height: 100vh !important;
-  min-height: 942px;
-  width: 100%;
-}
+  .hero-canvas {
+    height: 100vh !important;
+    min-height: 942px;
+    width: 100%;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    // justify-content: center;
+    align-items: end;
+    color: $FontColor;
+  
+    h1 {
+      font-family: "DM Mono", "SF Mono", "Poppins", "Roboto", "Neue Helvetica", sans-serif, serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: $HighlightColor;
+    }
+  
+    h2 {
+      margin: 0;
+      font-family: "Inter", "Poppins", "Roboto", "Neue Helvetica", sans-serif, serif;
+      font-weight: 600;
+      font-size: clamp(40px, 8vw, 80px);
+      color: $lightest-slate;
 
-.hero-overlay {
-  position: absolute;
-  height: 100vh;
-  width: 50%;
-  left: 0;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: $FontColor;
-
-  .hero-title {
-    text-align: center;
-    font-size: 40px;
-    width: 275px;
-    cursor: default;
-
-    img {
-      border-radius: 50%;
-      height: 50%;
-      width: 151.25px;
+      span:hover {
+        transform: scaleX(1.09) scaleY(.92);
+      }
+    }
+  
+    h3 {
+      margin: 0;
+      font-family: "Inter", "Poppins", "Roboto", "Neue Helvetica", sans-serif, serif;
+      font-weight: 600;
+      font-size: clamp(40px, 8vw, 80px);
+      color: $light-slate;
     }
 
-    span {
-      transition: all linear 0.1s;
+    p {
+      margin: 20px 0;
+      font-family: "Inter", "Poppins", "Roboto", "Neue Helvetica", sans-serif, serif;
+      font-size: 16px;
+      max-width: 540px;
+      line-height: 1.5;
+      color: $slate
     }
-
-    // span:hover {
-    //   font-size: 50px;
+  
+    .hero-title {
+      display: flex;
+      flex-direction: column;
+      padding: 150px 150px 130px;
+      // text-align: center;
+      font-size: 40px;
+      // width: 275px;
+      cursor: default;
+  
+      img {
+        border-radius: 50%;
+        height: 50%;
+        width: 151.25px;
+      }
+  
+      span {
+        display: inline-block;
+        transition: all linear 0.1s;
+      }
+  
+      .sun:hover {
+        color: #f7c202;
+      }
+  
+      .mercury:hover {
+        color: #a68202
+      }
+  
+      .venus:hover {
+        color: #c26a06
+      }
+  
+      .earth:hover {
+        color: #257d00
+      }
+  
+      .mars:hover {
+        color: #ad2003
+      }
+  
+      .jupiter:hover {
+        color: #e89a41
+      }
+  
+      .saturn:hover {
+        color: #e6c16c
+      }
+  
+      .uranus:hover {
+        color: #3ba19d
+      }
+  
+      .neptune:hover {
+        color: #0e286e
+      }
+  
+      .pluto:hover {
+        color: #9c6e3a
+      }
+    }
+  
+    // .hero-title-divider {
+    //   border-bottom: 1px solid $HighlightColor;
+    //   border-radius: 25px;
+    //   margin: 10px 0;
     // }
-
-    .sun:hover {
-      color: #f7c202;
-    }
-
-    .mercury:hover {
-      color: #a68202
-    }
-
-    .venus:hover {
-      color: #c26a06
-    }
-
-    .earth:hover {
-      color: #257d00
-    }
-
-    .mars:hover {
-      color: #ad2003
-    }
-
-    .jupiter:hover {
-      color: #e89a41
-    }
-
-    .saturn:hover {
-      color: #e6c16c
-    }
-
-    .uranus:hover {
-      color: #3ba19d
-    }
-
-    .neptune:hover {
-      color: #0e286e
-    }
-
-    .pluto:hover {
-      color: #9c6e3a
-    }
-  }
-
-  .hero-title-divider {
-    border-bottom: 1px solid $HighlightColor;
-    border-radius: 25px;
-    margin: 10px 0;
-  }
-
-  .hero-subtitle {
-    color: $HighlightColor;
   }
 }
 
@@ -570,6 +772,47 @@ section {
       }
     }
   }
+}
+
+/************** animations ************/
+
+/* Fade up */
+.fadeup-enter {
+  opacity: 0.01;
+  transform: translateY(20px);
+  transition: opacity 300ms $easing, transform 300ms $easing;
+}
+
+.fadeup-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 300ms $easing, transform 300ms $easing;
+}
+
+/* Fade down */
+.fadedown-enter {
+  opacity: 0.01;
+  transform: translateY(-20px);
+  transition: opacity 300ms $easing, transform 300ms $easing;
+}
+
+.fadedown-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 300ms $easing, transform 300ms $easing;
+}
+
+/* Fade in */
+.fade-in {
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+  transition-delay: 0.5s;
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
 }
 
 // @media screen and (max-width: 424px) {
