@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+
 import earthImage from '../images/icons8-earth-48.png';
 import saturnImage from '../images/saturn-94.png';
 
@@ -179,7 +179,7 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
 
   //Initial object arrays
   const sunWidth = 60;
-  let clouds = [{x: 20, y: 10, update: () => {}}];
+  let clouds = [{x: 20, y: 10, update: () => void(0)}];
 
   let center = { x: canvas.width / 1.5, y: canvas.height / 2 };
   let cx = center.x;
@@ -284,8 +284,13 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
     return Math.sqrt(dx * dx + dy * dy);
   };
 
+  interface coordinates {
+    // any props that come into the component, you don't have to explicitly define children.
+    x: number, 
+    y: number
+  }
 
-  const findClosest = (points: any[], b: number[]) => {
+  const findClosest = (points: coordinates[], b: number[]) => {
     let distance;
     let closestPoint;
     for (let i = 0; i < points.length; ++i) {
@@ -304,7 +309,7 @@ const drawHeroPlanet = (canvasRef: { current: any; }) => {
 
   const reDraw = () => {
     center = { x: canvas.width / 1.5, y: canvas.height / 2 };
-    clouds = [{x: 20, y: 10, update: () => {}}];
+    clouds = [{x: 20, y: 10, update: () => void(0)}];
 
     cx = center.x;
     cy = center.y;
