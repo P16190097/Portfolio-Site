@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Head as SEO, Layout, HeroBanner, AboutMe, Skills, Projects, Contact } from '@components';
+import { Head as SEO, Layout, HeroBanner, AboutMe, Skills, Experience, Projects, Contact } from '@components';
 
 // styles
 const pageStyles = {
@@ -22,6 +22,7 @@ const IndexPage = () => {
           <HeroBanner />
           <AboutMe />
           <Skills />
+          <Experience />
           <Projects />
           {/* <Socials /> */}
           <Contact />

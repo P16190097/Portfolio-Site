@@ -44,6 +44,7 @@ const Skills = () => {
               <ul>
                 <li>React</li>
                 <li>GraphQL</li>
+                <li>Nextjs</li>
                 <li>Gatsby</li>
                 <li>ASP.Net</li>
               </ul>
@@ -62,6 +63,7 @@ const Skills = () => {
               <ul>
                 <li>Git</li>
                 <li>GitHub</li>
+                <li>Jira</li>
                 <li>Bitbucket</li>
                 <li>Docker</li>
                 <li>IIS</li>
