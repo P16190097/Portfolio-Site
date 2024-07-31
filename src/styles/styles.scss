@@ -390,6 +390,77 @@ section {
   }
 }
 
+#employment {
+  .content-container {
+    justify-content: center;
+    text-align: center;
+    // align-items: center;
+    flex-direction: column;
+    color: $light-slate;
+
+    .employment-wrapper {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 3rem;
+
+      .employment-range {
+        grid-column: span 2 / span 2;
+
+        .range {
+          color: rgb(100, 116, 139);
+          font-weight: 600;
+        }
+      }
+
+      .employment-info {
+        padding: 0 30px;
+        grid-column: span 6 / span 6;
+       
+        .title {
+          margin-top: 0;
+          text-align: left;
+        }
+
+        .description {
+          text-align: left;
+        }
+
+        .tags {
+          ul {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            flex-grow: 1;
+            flex-wrap: wrap;
+            padding: 0px;
+            margin: 20px 0px 0px;
+            list-style: none;
+          }
+
+          li:not(:last-of-type) {
+            margin-right: 15px;
+          }
+
+          li {
+            font-family: "DM Mono", "SF Mono", "Poppins", "Roboto", "Neue Helvetica", sans-serif, serif;
+            font-size: 12px;
+            font-weight: bold;
+            color: $HighlightColor;
+            line-height: 1.75;
+
+            padding: 10px 20px;
+            background-color: #1B2735;
+            border-radius: 25px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
 #projects {
   .content-container {
     display: grid;
