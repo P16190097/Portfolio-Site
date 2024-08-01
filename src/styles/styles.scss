@@ -306,7 +306,7 @@ section {
   }
 }
 
-#aboutMe {
+#about {
   .content-container {
     justify-content: center;
     text-align: center;
@@ -340,7 +340,8 @@ section {
       }
     
       img {
-        max-height: 100px;
+        max-height: 75px;
+        max-width: 300px;
       }
     
       a:hover,
@@ -425,6 +426,7 @@ section {
 
         .description {
           text-align: left;
+          line-height: 25px;
         }
 
         .tags {

@@ -3,6 +3,8 @@ import { useInView } from 'react-intersection-observer';
 import LAM from '../../images/logo.jpg';
 import OLM from '../../images/olmLogoNew(olmBlue).png';
 import LIAM from '../../images/LMP.png';
+import INTERCEDE from '../../images/intercede small.png';
+import PLUMBING from '../../images/logo_small.png';
 
 
 const AboutMe = () => {
@@ -13,7 +15,7 @@ const AboutMe = () => {
   });
 
   return (
-    <section id="aboutMe">
+    <section id="about">
       <div className={`content-container fade-in ${inView && 'show'}`} ref={ref}>
         <h2>Hi, I&apos;m Josh. <span className="wave">👋</span></h2>
         {/* <p>
@@ -46,8 +48,14 @@ const AboutMe = () => {
           <a href="https://www.olmsystems.com/" target="_blank" rel="noreferrer">
             <img alt="OLM" src={OLM} />
           </a>
+          <a href="https://www.shauncooperplumbing.com/" target="_blank" rel="noreferrer">
+            <img alt="Shaun Cooper Plumbing LTD" src={PLUMBING} />
+          </a>
           <a href="http://www.liammayophotography.co.uk/" target="_blank" rel="noreferrer">
             <img alt="Liam Mayo Photography" src={LIAM} />
+          </a>
+          <a href="https://www.intercede.com/" target="_blank" rel="noreferrer">
+            <img alt="Intercede" src={INTERCEDE} />
           </a>
         </div>
       </div>

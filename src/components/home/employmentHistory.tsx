@@ -7,7 +7,7 @@ const experience = [
     name: 'Intercede, Software Engineer',
     start: '2024',
     end: 'PRESENT',
-    description: 'Build and maintain critical components used to construct Klaviyo\'s frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility.',
+    description: 'Build and maintain critical components used to develop Multi factor authentication dashboards and password management systems using Vue.js and Boootstrap. Work closely with cross-functional teams, including developers, designers, and product managers, to design and implement best practice solutions for optimal web accessibility.',
     tags: ['JQuery', 'Vue.js', 'C# .Net MVC', 'Bootstrap'],
   },
   {
