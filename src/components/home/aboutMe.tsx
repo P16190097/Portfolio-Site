@@ -54,9 +54,9 @@ const AboutMe = () => {
           <a href="http://www.liammayophotography.co.uk/" target="_blank" rel="noreferrer">
             <img alt="Liam Mayo Photography" src={LIAM} />
           </a>
-          <a href="https://www.intercede.com/" target="_blank" rel="noreferrer">
+          {/* <a href="https://www.intercede.com/" target="_blank" rel="noreferrer">
             <img alt="Intercede" src={INTERCEDE} />
-          </a>
+          </a> */}
         </div>
       </div>
     </section>

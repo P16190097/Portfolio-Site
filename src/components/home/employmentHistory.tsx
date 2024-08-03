@@ -27,7 +27,7 @@ const Employ = ({ employment: { start, end, name, description, tags }, index }) 
   });
 
   return (
-    <div className={`employment-wrapper ${inView ? 'fadeup-enter-active':'fadeup-enter'}`} ref={ref} style={{ transitionDelay: `${index + 1}00ms` }}>
+    <div className={`employment-wrapper ${inView ? 'fadeup-enter-active':'fadeup-enter'}`} ref={ref} style={{ transitionDelay: `${index + 2}00ms` }}>
       <div className="employment-range">
         <div className="range">{`${start} - ${end}`}</div>
       </div>
