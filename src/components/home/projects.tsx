@@ -1,6 +1,6 @@
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
+import { useInView } from 'react-intersection-observer';
 import { ExternalIcon, GithubIcon } from '@components/icons';
 import CuddlyIcon from '../../images/projects/final-logo.png';
 import PortfolioIcon from '../../images/thumbnail.png';

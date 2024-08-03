@@ -13,20 +13,21 @@ const Skills = () => {
 
             <div className="skills-column">
               <div className="icon-container">
-                <img src={DbIcon} alt="database-icon" />
+                <img src={UIIcon} alt="front-end-icon" />
               </div>
               <div className="skills-header">
-                <h1>Database</h1>
+                <h2>Programming languages</h2>
                 <p>
-                    Developing, maintaining and debugging SQL databases using Stored Procedures and ORMs.
+                    I like to code clean designs and bring pages to life in the browser.
                 </p>
               </div>
-              <h2>Dialects</h2>
               <ul>
-                <li>SQL Server</li>
-                <li>Postgres</li>
-                <li>MySQL</li>
-                <li>MariaDB</li>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>Sass</li>
+                <li>C#</li>
               </ul>
             </div>
 
@@ -35,40 +36,37 @@ const Skills = () => {
                 <img src={ServerIcon} alt="server-side-icon" />
               </div>
               <div className="skills-header">
-                <h1>Server-side</h1>
+                <h2>Libraries & Frameworks</h2>
                 <p>
-                  Building and maintaining .NET Core web applications in C# to developing GraphQL APIs using Javascript.
+                  From building and maintaining .NET web applications to developing GraphQL APIs.
                 </p>
               </div>
-              <h2>Server-side Tech</h2>
               <ul>
-                <li>C# .Net Core/Framework</li>
-                <li>Nodejs</li>
+                <li>React</li>
                 <li>GraphQL</li>
-                <li>Docker</li>
-                <li>IIS</li>
+                <li>Nextjs</li>
+                <li>Gatsby</li>
+                <li>ASP.Net</li>
               </ul>
             </div>
 
             <div className="skills-column">
               <div className="icon-container">
-                <img src={UIIcon} alt="front-end-icon" />
+                <img src={DbIcon} alt="database-icon" />
               </div>
               <div className="skills-header">
-                <h1>UI / UX</h1>
+                <h2>Tools & Platforms</h2>
                 <p>
-                    Producing and maintaining web based applications for clientele using Nodejs with react.
+                    Powering innovation with effective tooling and platforms.
                 </p>
               </div>
-              <h2>Front-end frameworks</h2>
               <ul>
-                <li>React</li>
-                <li>Gatsby</li>
-                <li>Sass</li>
-                <li>TypeScript</li>
-                <li>JQuery</li>
-                <li>HTML5</li>
-                <li>CSS3</li>
+                <li>Git</li>
+                <li>GitHub</li>
+                <li>Jira</li>
+                <li>Bitbucket</li>
+                <li>Docker</li>
+                <li>IIS</li>
               </ul>
             </div>
 

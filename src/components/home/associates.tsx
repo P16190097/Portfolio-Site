@@ -3,6 +3,7 @@ import { InView } from 'react-intersection-observer';
 import LAM from '../../images/logo.jpg';
 import OLM from '../../images/olmLogoNew(olmBlue).png';
 import LIAM from '../../images/LMP.png';
+import INTERCEDE from '../../images/intercede small.png';
 
 const Associates = () => {
   return (
@@ -21,6 +22,9 @@ const Associates = () => {
             </a>
             <a href="http://www.liammayophotography.co.uk/" target="_blank" rel="noreferrer">
               <img alt="Liam Mayo Photography" src={LIAM} />
+            </a>
+            <a href="http://www.intercede.com/" target="_blank" rel="noreferrer">
+              <img alt="Intercede" src={INTERCEDE} />
             </a>
           </div>
         )}
